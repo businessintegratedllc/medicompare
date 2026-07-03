@@ -2,8 +2,6 @@ import json
 from datetime import datetime
 
 def generate_live_database():
-    # Esta es tu base de datos centralizada. 
-    # Aquí puedes seguir agregando todos los productos que desees.
     products = [
         {
             "id": 1,
@@ -24,7 +22,7 @@ def generate_live_database():
             "meta": "Solución inyectable · Control Glucémico (Diabetes)",
             "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300",
             "category": "Diabetes",
-            "prices: [
+            "prices": [
                 {"pharmacy": "Fischel", "price": 72000, "link": "https://fischelenlinea.com", "stock": "Disponible"},
                 {"pharmacy": "FarmaValue", "price": 62450, "link": "https://farmavalue.com/cr", "stock": "Mejor Precio"},
                 {"pharmacy": "La Bomba", "price": 63000, "link": "https://farmacialabomba.com", "stock": "Disponible"},
@@ -79,7 +77,7 @@ def generate_live_database():
             "prices": [
                 {"pharmacy": "Fischel", "price": 850, "link": "https://fischelenlinea.com", "stock": "Disponible"},
                 {"pharmacy": "FarmaValue", "price": 650, "link": "https://farmavalue.com/cr", "stock": "Disponible"},
-                {"pharmacy": "La Bomba", "price": 600, "link: "https://farmacialabomba.com", "stock": "Disponible"},
+                {"pharmacy": "La Bomba", "price": 600, "link": "https://farmacialabomba.com", "stock": "Disponible"},
                 {"pharmacy": "Sucre", "price": 750, "link": "https://sucreenlinea.com", "stock": "Disponible"}
             ]
         },
@@ -107,7 +105,7 @@ def generate_live_database():
     with open('productos.json', 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
     
-    print(f"Éxito: Se han procesado {len(products)} productos.")
+    print(f"Exito: Se han procesado {len(products)} productos.")
 
 if __name__ == "__main__":
     generate_live_database()
