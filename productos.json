@@ -1,5 +1,117 @@
 {
-    "last_update": "03/07/2026 15:19",
-    "total_products": 0,
-    "products": []
+    "last_update": "03/07/2026 15:30",
+    "products": [
+        {
+            "id": 1,
+            "name": "Panadol Extra 500mg",
+            "category": "Analgésicos",
+            "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300",
+            "prices": [
+                {
+                    "pharmacy": "Fischel",
+                    "price": 3250,
+                    "link": "https://fischelenlinea.com"
+                },
+                {
+                    "pharmacy": "FarmaValue",
+                    "price": 2850,
+                    "link": "https://farmavalue.com/cr"
+                },
+                {
+                    "pharmacy": "La Bomba",
+                    "price": 2900,
+                    "link": "https://farmacialabomba.com"
+                },
+                {
+                    "pharmacy": "Sucre",
+                    "price": 3150,
+                    "link": "https://sucreenlinea.com"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Ozempic 1mg",
+            "category": "Diabetes",
+            "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300",
+            "prices": [
+                {
+                    "pharmacy": "Fischel",
+                    "price": 72000,
+                    "link": "https://fischelenlinea.com"
+                },
+                {
+                    "pharmacy": "FarmaValue",
+                    "price": 62450,
+                    "link": "https://farmavalue.com/cr"
+                },
+                {
+                    "pharmacy": "La Bomba",
+                    "price": 63000,
+                    "link": "https://farmacialabomba.com"
+                },
+                {
+                    "pharmacy": "Sucre",
+                    "price": 69500,
+                    "link": "https://sucreenlinea.com"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Algodón Hidrófilo 100g",
+            "category": "Botiquín",
+            "image": "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=300",
+            "prices": [
+                {
+                    "pharmacy": "Fischel",
+                    "price": 1200,
+                    "link": "https://fischelenlinea.com"
+                },
+                {
+                    "pharmacy": "FarmaValue",
+                    "price": 950,
+                    "link": "https://farmavalue.com/cr"
+                },
+                {
+                    "pharmacy": "La Bomba",
+                    "price": 900,
+                    "link": "https://farmacialabomba.com"
+                },
+                {
+                    "pharmacy": "Sucre",
+                    "price": 1100,
+                    "link": "https://sucreenlinea.com"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Ensure Advance Vainilla",
+            "category": "Nutrición",
+            "image": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300",
+            "prices": [
+                {
+                    "pharmacy": "Fischel",
+                    "price": 14500,
+                    "link": "https://fischelenlinea.com"
+                },
+                {
+                    "pharmacy": "FarmaValue",
+                    "price": 13950,
+                    "link": "https://farmavalue.com/cr"
+                },
+                {
+                    "pharmacy": "La Bomba",
+                    "price": 13800,
+                    "link": "https://farmacialabomba.com"
+                },
+                {
+                    "pharmacy": "Sucre",
+                    "price": 14200,
+                    "link": "https://sucreenlinea.com"
+                }
+            ]
+        }
+    ]
 }
