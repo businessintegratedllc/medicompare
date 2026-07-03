@@ -1,48 +1,5 @@
 {
-    "last_update": "03/07/2026 14:51",
-    "total_products": 2,
-    "products": [
-        {
-            "id": 100,
-            "name": "Panadol Extra 500mg",
-            "category": "Analgésicos",
-            "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300",
-            "meta": "Paracetamol + Cafeína",
-            "prices": [
-                {
-                    "pharmacy": "FarmaValue",
-                    "price": 2850,
-                    "link": "https://farmavalue.com/cr",
-                    "stock": "Disponible"
-                },
-                {
-                    "pharmacy": "Sucre",
-                    "price": 3100,
-                    "link": "https://sucreenlinea.com",
-                    "stock": "Disponible"
-                }
-            ]
-        },
-        {
-            "id": 101,
-            "name": "Ozempic 1mg",
-            "category": "Diabetes",
-            "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300",
-            "meta": "Solución inyectable",
-            "prices": [
-                {
-                    "pharmacy": "FarmaValue",
-                    "price": 62450,
-                    "link": "https://farmavalue.com/cr",
-                    "stock": "Oferta"
-                },
-                {
-                    "pharmacy": "La Bomba",
-                    "price": 63000,
-                    "link": "https://farmacialabomba.com",
-                    "stock": "Disponible"
-                }
-            ]
-        }
-    ]
+    "last_update": "03/07/2026 15:04",
+    "total_products": 0,
+    "products": []
 }
