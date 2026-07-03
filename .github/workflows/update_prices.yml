@@ -1,32 +1,37 @@
+
 name: Actualizar Precios MediCompare
 
 on:
   schedule:
-    - cron: '0 12 * * *' # Corre todos los días a las 6 AM hora Costa Rica
+    - cron: '0 12 * * *' # Corre a las 6 AM hora Costa Rica
   workflow_dispatch: # Botón para correrlo manualmente
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions: # Añadimos permisos explícitos para evitar errores de escritura
+      contents: write
     steps:
       - name: Checkout del código
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4 # Actualizado de v3 a v4
 
       - name: Configurar Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5 # Actualizado de v4 a v5
         with:
-          python-version: '3.9'
+          python-version: '3.11'
 
       - name: Instalar dependencias
-        run: pip install requests
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
 
       - name: Ejecutar Scraper
         run: python scraper.py
 
-      - name: Guardar cambios
+      - name: Guardar cambios en el repositorio
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add productos.json
-          git commit -m "Precios actualizados" || exit 0
+          git commit -m "Precios actualizados automáticamente" || exit 0
           git push
