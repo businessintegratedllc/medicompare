@@ -152,12 +152,12 @@ const App: React.FC = () => {
 
                 return (
                   /* Tarjeta más pequeña: redondeado 32px y padding reducido */
-                  <div key={item.id} className="bg-white rounded-[32px] border border-slate-200 p-6 md:p-8 flex flex-col md:flex-row gap-8 hover:shadow-xl transition-all group hover:border-teal-500/30">
+                  <div key={item.id} className="bg-white rounded-[12px] border border-slate-100 p-6 md:p-8 flex flex-col md:flex-row gap-8 hover:shadow-xl transition-all group hover:border-teal-500/30">
                     <div className="md:w-40 flex-shrink-0 flex items-center justify-center bg-slate-50 rounded-2xl p-4">
                       <img src={item.image} alt={item.name} className="max-w-full h-auto mix-blend-multiply transition-transform group-hover:scale-105" />
                     </div>
                     <div className="flex-1">
-                      <span className="text-teal-600 text-[9px] font-black uppercase tracking-widest mb-1 inline-block">{item.category}</span>
+                      <span className="text-teal-600 text-[6px] font-black uppercase tracking-widest mb-1 inline-block">{item.category}</span>
                       <h2 className="text-2xl font-black text-slate-900 mb-6 tracking-tight leading-tight">{item.name}</h2>
                       <div className="space-y-3">
                         {prices.map((p, idx) => (
@@ -165,7 +165,7 @@ const App: React.FC = () => {
                             <div className="flex items-center gap-3">
                               <span className="text-sm font-bold text-slate-600">{p.pharmacy}</span>
                               {p.price === minPrice && prices.length > 1 && (
-                                <span className="bg-emerald-100 text-emerald-700 text-[9px] font-black px-2 py-0.5 rounded-md uppercase tracking-tighter">Ahorro</span>
+                                <span className="bg-emerald-100 text-emerald-700 text-[6px] font-black px-2 py-0.5 rounded-md uppercase tracking-tighter">Ahorro</span>
                               )}
                             </div>
                             <div className="flex items-center gap-6">
@@ -187,7 +187,7 @@ const App: React.FC = () => {
                 );
               })
             ) : (
-              <div className="bg-white rounded-[40px] border-2 border-dashed border-slate-200 p-16 text-center">
+              <div className="bg-white rounded-[20px] border-2 border-dashed border-slate-200 p-16 text-center">
                 <AlertCircle size={60} className="mx-auto text-slate-100 mb-6" />
                 <h2 className="text-2xl font-black text-slate-400 mb-8 italic italic">"{searchTerm}" no está en el catálogo</h2>
                 <div className="flex flex-wrap justify-center gap-4">
@@ -214,7 +214,7 @@ const App: React.FC = () => {
           <div className="text-4xl font-black mb-8 tracking-tighter opacity-30">MediCompare</div>
           <div className="pt-12 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="text-lg font-black text-slate-400">
-               Diseñado por <span className="text-teal-500">Randall Castro Arias</span>
+               Diseñado por <span className="text-teal-250">Randall Castro Arias para Business Integarted LLC</span>
             </div>
             <div className="flex gap-6 text-slate-500 font-bold text-xs uppercase tracking-widest">
                <a href="#" className="hover:text-white transition-colors">Privacidad</a>
