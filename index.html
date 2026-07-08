@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MediCompare CR | Comparador de Precios #1</title>
+    <title>MediCompare CR | El Comparador de Precios #1</title>
     <link rel="icon" type="image/png" href="medicompare_icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,32 +18,179 @@
         body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
         
-        /* Logo Profesional Extra Grande en Español */
-        header { background: var(--white); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 1000; padding: 25px 0; }
+        /* Logo e Identidad - 100% Español */
+        header { background: var(--white); border-bottom: 2px solid var(--line); position: sticky; top: 0; z-index: 1000; padding: 20px 0; }
         .header-inner { display: flex; justify-content: space-between; align-items: center; }
         .logo-box { display: flex; align-items: center; gap: 15px; cursor: pointer; text-decoration: none; }
-        .logo-symbol { background: var(--accent); color: white; width: 70px; height: 65px; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 2.2rem; }
-        .logo-text div { color: var(--primary); font-weight: 900; font-size: 2.5rem; line-height: 1; letter-spacing: -1px; }
-        .logo-text span { color: var(--accent); font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        .logo-icon { background: var(--accent); color: white; width: 65px; height: 60px; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 2.2rem; box-shadow: 0 5px 15px rgba(13, 148, 136, 0.3); }
+        .logo-text div { color: var(--primary); font-weight: 900; font-size: 2.2rem; line-height: 1; letter-spacing: -1px; }
+        .logo-text span { color: var(--accent); font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
         
         /* Hero & Buscador */
         .hero { background: var(--white); padding: 80px 0; border-bottom: 1px solid var(--line); text-align: center; }
         .hero h1 { font-size: 3.5rem; font-weight: 800; color: var(--primary); margin-bottom: 15px; letter-spacing: -0.04em; }
-        .hero p { color: var(--text-light); margin-bottom: 45px; font-size: 1.3rem; }
-        .search-box { max-width: 850px; margin: 0 auto; display: flex; gap: 10px; background: #f1f5f9; padding: 12px; border-radius: 100px; border: 2px solid transparent; }
-        .search-box:focus-within { border-color: var(--accent); background: white; box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1); }
-        .search-box input { flex: 1; border: none; background: none; padding: 10px 35px; font-size: 1.3rem; outline: none; font-weight: 600; color: var(--primary); }
+        .hero p { color: var(--text-light); margin-bottom: 45px; font-size: 1.3rem; max-width: 750px; margin-left: auto; margin-right: auto; }
+        .search-box { max-width: 850px; margin: 0 auto; display: flex; gap: 10px; background: #f1f5f9; padding: 12px; border-radius: 100px; border: 2px solid transparent; transition: 0.4s; }
+        .search-box:focus-within { border-color: var(--accent); background: white; box-shadow: 0 20px 40px -10px rgba(0,0,0,0.12); }
+        .search-box input { flex: 1; border: none; background: none; padding: 10px 30px; font-size: 1.3rem; outline: none; font-weight: 600; color: var(--primary); }
         .btn-main { background: var(--accent); color: white; border: none; padding: 14px 60px; border-radius: 100px; font-weight: 800; cursor: pointer; transition: 0.3s; font-size: 1.2rem; }
 
-        /* Layout & Sidebar */
+        /* Layout */
         .layout { display: grid; grid-template-columns: 280px 1fr; gap: 50px; margin: 60px 0; padding-bottom: 120px; }
-        .sidebar { background: white; border-radius: 30px; border: 1px solid var(--line); padding: 35px; height: fit-content; position: sticky; top: 160px; }
-        .sidebar h3 { font-size: 1.3rem; margin-bottom: 30px; color: var(--primary); font-weight: 800; }
+        .sidebar { background: white; border-radius: 30px; border: 1px solid var(--line); padding: 35px; height: fit-content; position: sticky; top: 140px; }
         .check-item { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; cursor: pointer; font-weight: 700; }
         .check-item input { width: 22px; height: 22px; accent-color: var(--accent); }
 
-        /* Tarjetas de Productos */
+        /* Tarjetas */
         .product-grid { display: grid; gap: 35px; }
-        .product-card { background: white; border-radius: 40px; border: 1px solid var(--line); padding: 45px; display: grid; grid-template-columns: 200px 1fr; gap: 50px; transition: 0.4s; }
+        .product-card { background: white; border-radius: 40px; border: 1px solid var(--line); padding: 45px; display: grid; grid-template-columns: 220px 1fr; gap: 50px; transition: 0.4s; }
         .product-card:hover { border-color: var(--accent); box-shadow: 0 40px 80px -20px rgba(0,0,0,0.1); transform: translateY(-8px); }
-        .product-img { width: 10
+        
+        /* Tabla */
+        .comp-table { width: 100%; border-collapse: collapse; margin-top: 25px; }
+        .comp-table td { padding: 25px 0; border-top: 1px solid #f1f5f9; }
+        .price-val { font-weight: 900; font-size: 1.8rem; color: var(--accent); }
+        .badge-best { background: #d1fae5; color: #065f46; padding: 8px 15px; border-radius: 10px; font-size: 0.8rem; font-weight: 800; margin-left: 15px; text-transform: uppercase; }
+        .btn-go { padding: 15px 30px; border-radius: 15px; text-decoration: none; font-size: 1rem; font-weight: 800; background: var(--primary); color: white; transition: 0.3s; }
+
+        /* Búsqueda Directa (Links corregidos según tu lista) */
+        .empty-state { grid-column: 1/-1; text-align: center; padding: 100px 50px; background: white; border-radius: 50px; border: 2px dashed var(--line); }
+        .deep-btns { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
+        .btn-deep { padding: 20px 35px; border-radius: 18px; color: white; text-decoration: none; font-weight: 800; min-width: 220px; transition: 0.3s; text-align: center; font-size: 1.1rem; }
+
+        /* Footer con Créditos */
+        footer { background: var(--primary); color: white; padding: 100px 0; text-align: center; }
+        .credits-box { font-size: 1.4rem; color: #94a3b8; font-weight: 800; border-top: 2px solid #1e293b; padding-top: 40px; margin-top: 40px; display: inline-block; }
+        .credits-box span { color: var(--accent); }
+
+        @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } .sidebar { display: none; } .product-card { grid-template-columns: 1fr; text-align: center; } }
+    </style>
+</head>
+<body>
+    <header><div class="container header-inner">
+        <a href="javascript:location.reload()" class="logo-box">
+            <div class="logo-icon">MC</div>
+            <div class="logo-text">
+                <div>MediCompare</div>
+                <span>Encuentra el mejor precio</span>
+            </div>
+        </a>
+        <div style="font-weight: 900; color: var(--accent); font-size: 1.2rem;">COSTA RICA</div>
+    </div></header>
+    
+    <div class="hero"><div class="container">
+        <h1>Tu medicina al precio justo.</h1>
+        <p>Comparamos los precios de las farmacias líderes en Costa Rica para que no pagues ni un colón de más.</p>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Escribe el nombre del medicamento aquí...">
+            <button class="btn-main" onclick="startSearch()">Buscar ahora</button>
+        </div>
+    </div></div>
+
+    <main class="container"><div class="layout">
+        <aside class="sidebar">
+            <h3>Farmacias</h3>
+            <label class="check-item"><input type="checkbox" checked onchange="startSearch()"> Fischel</label>
+            <label class="check-item"><input type="checkbox" checked onchange="startSearch()"> FarmaValue</label>
+            <label class="check-item"><input type="checkbox" checked onchange="startSearch()"> La Bomba</label>
+            <label class="check-item"><input type="checkbox" checked onchange="startSearch()"> Sucre</label>
+        </aside>
+        
+        <section class="results">
+            <h2 id="statusText" style="margin-bottom:35px; font-weight: 900; font-size: 2rem;">Catálogo de Ahorro</h2>
+            <div class="product-grid" id="mainGrid"></div>
+        </section>
+    </div></main>
+
+    <footer><div class="container">
+        <div style="font-weight: 900; font-size: 2.5rem; margin-bottom: 15px;">MediCompare</div>
+        <p style="color: #64748b;">La herramienta esencial para la salud de tu familia en Costa Rica.</p>
+        <div class="credits-box">Diseñado por <span>Randall Castro Arias</span></div>
+    </div></footer>
+
+    <script>
+        let db = [];
+        
+        // MOTOR DE BÚSQUEDA DEFINITIVO CON LINKS PROPORCIONADOS POR TI
+        function getSearchUrl(pharmacy, term) {
+            const q = encodeURIComponent(term.split(' ')[0]); // Solo usamos la primera palabra para evitar 404
+            if (pharmacy === "Fischel") return `https://fischelenlinea.com/busqueda?f=${q}`;
+            if (pharmacy === "FarmaValue") return `https://www.farmavalue.com/cr/products?q=${q}`;
+            if (pharmacy === "La Bomba") return `https://www.farmacialabomba.com/busqueda?f=${q}`;
+            if (pharmacy === "Sucre") return `https://sucreenlinea.com/catalogsearch/result/?q=${q}`;
+            return "#";
+        }
+
+        async function init() {
+            try {
+                const res = await fetch('productos.json');
+                const data = await res.json();
+                db = data.products || [];
+                document.getElementById('statusText').innerText = `Catálogo Actualizado`;
+                render(db);
+            } catch (e) {
+                render([]);
+            }
+        }
+
+        function startSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            if (!query) { render(db); return; }
+            const filtered = db.filter(p => p.name.toLowerCase().includes(query));
+            if (filtered.length === 0) {
+                showDeepSearch(query);
+            } else {
+                document.getElementById('statusText').innerText = `${filtered.length} ofertas encontradas`;
+                render(filtered);
+            }
+        }
+
+        function showDeepSearch(query) {
+            const grid = document.getElementById('mainGrid');
+            document.getElementById('statusText').innerText = `Búsqueda profunda para: "${query}"`;
+            grid.innerHTML = `
+                <div class="empty-state">
+                    <h2 style="margin-bottom:20px; font-weight: 800; font-size: 2.2rem;">"${query}" no se encuentra localmente</h2>
+                    <p style="color:var(--text-light); margin-bottom:45px; font-size: 1.3rem;">Busca el precio en vivo directamente en las farmacias oficiales:</p>
+                    <div class="deep-btns">
+                        <a href="${getSearchUrl('Fischel', query)}" target="_blank" class="btn-deep" style="background:var(--fischel)">En Fischel</a>
+                        <a href="${getSearchUrl('FarmaValue', query)}" target="_blank" class="btn-deep" style="background:var(--farmavalue)">En FarmaValue</a>
+                        <a href="${getSearchUrl('La Bomba', query)}" target="_blank" class="btn-deep" style="background:var(--labomba); color:black;">En La Bomba</a>
+                        <a href="${getSearchUrl('Sucre', query)}" target="_blank" class="btn-deep" style="background:var(--sucre)">En Sucre</a>
+                    </div>
+                </div>`;
+        }
+
+        function render(data) {
+            const grid = document.getElementById('mainGrid');
+            const active = Array.from(document.querySelectorAll('.sidebar input:checked')).map(cb => cb.parentElement.textContent.trim());
+            
+            grid.innerHTML = data.map(item => {
+                const prices = item.prices.filter(p => active.includes(p.pharmacy)).sort((a,b) => a.price - b.price);
+                if (prices.length === 0) return "";
+                const min = prices[0].price;
+
+                return `
+                <div class="product-card">
+                    <div style="text-align:center;"><img src="${item.image}" style="width:100%; max-width:180px; border-radius:20px;"></div>
+                    <div>
+                        <h2 style="margin-bottom:25px; font-size:2.2rem; font-weight:800; color: var(--primary);">${item.name}</h2>
+                        <table class="comp-table">
+                            ${prices.map(p => `
+                                <tr>
+                                    <td style="font-weight:800; font-size:1.2rem;">${p.pharmacy} ${p.price === min && prices.length > 1 ? '<span class="badge-best">Mejor Precio</span>' : ''}</td>
+                                    <td class="price-val">₡${p.price.toLocaleString()}</td>
+                                    <td style="text-align:right;"><a href="${getSearchUrl(p.pharmacy, item.name)}" target="_blank" class="btn-go">Comprar</a></td>
+                                </tr>
+                            `).join('')}
+                        </table>
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
+        document.getElementById('searchInput').addEventListener('keypress', (e) => { if(e.key === 'Enter') startSearch(); });
+        window.onload = init;
+    </script>
+</body>
+</html>
