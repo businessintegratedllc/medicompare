@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Store, ChevronRight, AlertCircle, Globe, Zap } from 'lucide-react';
+import { Search, Store, ChevronRight, AlertCircle, Globe } from 'lucide-react';
 
-// --- Interfaces de Datos ---
 interface PharmacyPrice {
   pharmacy: string;
   price: number;
@@ -21,15 +20,12 @@ const App: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [activePharms, setActivePharms] = useState(['Fischel', 'FarmaValue', 'La Bomba', 'Sucre']);
   const [loading, setLoading] = useState(true);
-  const [lastUpdate, setLastUpdate] = useState('');
 
-  // --- Datos de Respaldo ---
   const defaultData: Product[] = [
-    { id: 1, name: "Panadol Extra 500mg", category: "Analgésicos", image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300", prices: [{pharmacy: "Fischel", price: 3250}, {pharmacy: "FarmaValue", price: 2850}, {pharmacy: "La Bomba", price: 2900}, {pharmacy: "Sucre", price: 3150}] },
-    { id: 2, name: "Ozempic 1mg Pluma", category: "Diabetes", image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300", prices: [{pharmacy: "FarmaValue", price: 62450}, {pharmacy: "La Bomba", price: 63000}] }
+    { id: 1, name: "Panadol Extra 500mg", category: "Analgésicos", image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=200", prices: [{pharmacy: "Fischel", price: 3250}, {pharmacy: "FarmaValue", price: 2850}, {pharmacy: "La Bomba", price: 2900}, {pharmacy: "Sucre", price: 3150}] },
+    { id: 2, name: "Ozempic 1mg Pluma", category: "Diabetes", image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=200", prices: [{pharmacy: "FarmaValue", price: 62450}, {pharmacy: "La Bomba", price: 63000}] }
   ];
 
-  // --- Lógica de Búsqueda Inteligente (Enlaces Verificados) ---
   const getSearchUrl = (pharmacy: string, productName: string) => {
     const q = encodeURIComponent(productName.split(' ')[0].replace(/[^a-zA-Z]/g, ''));
     if (pharmacy === "Fischel") return `https://fischelenlinea.com/busqueda?f=${q}`;
@@ -45,7 +41,6 @@ const App: React.FC = () => {
       .then(data => {
         setDb(data.products || defaultData);
         setFilteredDb(data.products || defaultData);
-        setLastUpdate(data.last_update || 'Hoy');
         setLoading(false);
       })
       .catch(() => {
@@ -58,47 +53,37 @@ const App: React.FC = () => {
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value.toLowerCase();
     setSearchTerm(val);
-    const filtered = db.filter(p => 
-      p.name.toLowerCase().includes(val) || 
-      (p.category && p.category.toLowerCase().includes(val))
-    );
+    const filtered = db.filter(p => p.name.toLowerCase().includes(val) || (p.category && p.category.toLowerCase().includes(val)));
     setFilteredDb(filtered);
   };
 
   return (
-    <div className="min-h-screen bg-[#f6f8fb] text-slate-900 selection:bg-teal-500 selection:text-white">
-      {/* Header Compacto */}
-      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-200/60 py-3">
-        <div className="container mx-auto px-6 flex justify-between items-center">
-          <div className="flex items-center gap-3 cursor-pointer group" onClick={() => window.location.reload()}>
-            <div className="bg-gradient-to-br from-teal-500 to-teal-700 text-white w-12 h-10 rounded-xl flex items-center justify-center font-black text-xl shadow-lg">MC</div>
+    <div className="min-h-screen bg-[#f6f8fb] text-slate-900">
+      {/* Header Mini */}
+      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 py-2">
+        <div className="container mx-auto px-4 flex justify-between items-center">
+          <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.location.reload()}>
+            <div className="bg-teal-600 text-white w-10 h-9 rounded-lg flex items-center justify-center font-black text-lg">MC</div>
             <div>
-              <div className="text-xl font-black tracking-tighter leading-none text-slate-900">MediCompare</div>
-              <span className="text-teal-600 text-[9px] font-black uppercase tracking-widest">Comparador de Precios</span>
+              <div className="text-lg font-black leading-none">MediCompare</div>
+              <span className="text-teal-600 text-[8px] font-bold uppercase">Costa Rica</span>
             </div>
           </div>
-          <div className="flex items-center gap-4">
-             <div className="hidden md:block font-black text-slate-400 text-[10px] tracking-widest uppercase">Costa Rica</div>
-             <Zap size={18} className="text-teal-500" />
-          </div>
+          <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Buscador Inteligente</div>
         </div>
       </header>
 
-      {/* Hero Section Compacta */}
-      <section className="bg-white py-16 text-center border-b border-slate-100 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[radial-gradient(#0d9488_1px,transparent_1px)] [background-size:20px_20px]"></div>
-        <div className="container mx-auto px-6 relative z-10">
-          <h1 className="text-4xl md:text-5xl font-black text-slate-900 mb-4 tracking-tight">Salud inteligente, <span className="text-teal-600">ahorro real.</span></h1>
-          <p className="text-lg text-slate-500 mb-10 max-w-xl mx-auto font-medium">Compara precios de las farmacias líderes en un solo lugar.</p>
-          
+      {/* Hero Ultra Compacto */}
+      <section className="bg-white py-8 border-b border-slate-100">
+        <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto relative group">
-            <div className="absolute inset-y-0 left-6 flex items-center text-slate-400 group-focus-within:text-teal-600">
-              <Search size={22} />
+            <div className="absolute inset-y-0 left-5 flex items-center text-slate-400 group-focus-within:text-teal-600 transition-colors">
+              <Search size={18} />
             </div>
             <input 
               type="text" 
-              placeholder="Busca Panadol, Ozempic, Aspirina..."
-              className="w-full bg-slate-100 border-2 border-transparent focus:border-teal-500 focus:bg-white rounded-full py-4 pl-16 pr-6 text-lg font-bold outline-none transition-all shadow-lg"
+              placeholder="Busca tu medicamento..."
+              className="w-full bg-slate-100 border-2 border-transparent focus:border-teal-500 focus:bg-white rounded-full py-3 pl-12 pr-4 text-base font-bold outline-none transition-all shadow-sm"
               value={searchTerm}
               onChange={handleSearch}
             />
@@ -106,17 +91,14 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Main Content */}
-      <main className="container mx-auto px-6 py-12 grid lg:grid-cols-[260px_1fr] gap-12">
-        {/* Sidebar */}
-        <aside className="space-y-8">
-          <div>
-            <h3 className="text-xs font-black text-slate-400 uppercase tracking-widest mb-5 flex items-center gap-2">
-              <Globe size={14} className="text-teal-500" /> Filtros
-            </h3>
-            <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm space-y-4">
+      <main className="container mx-auto px-4 py-8 grid lg:grid-cols-[220px_1fr] gap-8">
+        {/* Sidebar Compacto */}
+        <aside className="space-y-6">
+          <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm">
+            <h3 className="text-[11px] font-black text-slate-400 uppercase mb-4 tracking-tighter">Farmacias</h3>
+            <div className="space-y-3">
               {['Fischel', 'FarmaValue', 'La Bomba', 'Sucre'].map(farm => (
-                <label key={farm} className="flex items-center gap-3 font-bold text-slate-700 cursor-pointer hover:text-teal-600 text-sm">
+                <label key={farm} className="flex items-center gap-3 font-bold text-slate-700 text-xs cursor-pointer hover:text-teal-600 transition-colors">
                   <input 
                     type="checkbox" 
                     checked={activePharms.includes(farm)}
@@ -124,7 +106,7 @@ const App: React.FC = () => {
                       const next = activePharms.includes(farm) ? activePharms.filter(f => f !== farm) : [...activePharms, farm];
                       setActivePharms(next);
                     }}
-                    className="w-5 h-5 rounded-lg accent-teal-600"
+                    className="w-4 h-4 rounded-md accent-teal-600"
                   /> {farm}
                 </label>
               ))}
@@ -132,18 +114,11 @@ const App: React.FC = () => {
           </div>
         </aside>
 
-        {/* Listado de Productos Compacto */}
+        {/* Listado Ultra Compacto */}
         <section>
-          <div className="flex justify-between items-center mb-8">
-             <h2 className="text-xl font-black text-slate-900">Catálogo de Productos</h2>
-             <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest bg-white px-4 py-1.5 rounded-full border border-slate-200">
-                Actualizado: {lastUpdate}
-             </div>
-          </div>
-
-          <div className="grid gap-6">
+          <div className="grid gap-4">
             {loading ? (
-              <div className="text-center py-20 font-black text-slate-200 text-3xl animate-pulse">CARGANDO...</div>
+              <div className="text-center py-20 font-black text-slate-200">CARGANDO...</div>
             ) : filteredDb.length > 0 ? (
               filteredDb.map(item => {
                 const prices = item.prices.filter(p => activePharms.includes(p.pharmacy)).sort((a,b) => a.price - b.price);
@@ -151,32 +126,39 @@ const App: React.FC = () => {
                 const minPrice = prices[0].price;
 
                 return (
-                  /* Tarjeta más pequeña: redondeado 32px y padding reducido */
-                  <div key={item.id} className="bg-white rounded-[12px] border border-slate-100 p-6 md:p-8 flex flex-col md:flex-row gap-8 hover:shadow-xl transition-all group hover:border-teal-500/30">
-                    <div className="md:w-40 flex-shrink-0 flex items-center justify-center bg-slate-50 rounded-2xl p-4">
+                  <div key={item.id} className="bg-white rounded-2xl border border-slate-200 p-4 flex flex-col md:flex-row gap-6 hover:shadow-md transition-all group hover:border-teal-500/50">
+                    {/* Imagen Mini: de w-40 a w-24 */}
+                    <div className="md:w-24 flex-shrink-0 flex items-center justify-center bg-slate-50 rounded-xl p-2">
                       <img src={item.image} alt={item.name} className="max-w-full h-auto mix-blend-multiply transition-transform group-hover:scale-105" />
                     </div>
+                    
                     <div className="flex-1">
-                      <span className="text-teal-600 text-[6px] font-black uppercase tracking-widest mb-1 inline-block">{item.category}</span>
-                      <h2 className="text-2xl font-black text-slate-900 mb-6 tracking-tight leading-tight">{item.name}</h2>
-                      <div className="space-y-3">
+                      <div className="flex justify-between items-start mb-2">
+                        <div>
+                          <span className="text-teal-600 text-[8px] font-black uppercase tracking-tighter">{item.category}</span>
+                          <h2 className="text-lg font-black text-slate-900 tracking-tight leading-none">{item.name}</h2>
+                        </div>
+                      </div>
+                      
+                      <div className="grid gap-1">
                         {prices.map((p, idx) => (
-                          <div key={idx} className="flex items-center justify-between py-3 border-t border-slate-100 first:border-0">
-                            <div className="flex items-center gap-3">
-                              <span className="text-sm font-bold text-slate-600">{p.pharmacy}</span>
+                          /* Filas de precios ultra-delgadas */
+                          <div key={idx} className="flex items-center justify-between py-1.5 border-t border-slate-50 first:border-0">
+                            <div className="flex items-center gap-2">
+                              <span className="text-[11px] font-bold text-slate-600">{p.pharmacy}</span>
                               {p.price === minPrice && prices.length > 1 && (
-                                <span className="bg-emerald-100 text-emerald-700 text-[6px] font-black px-2 py-0.5 rounded-md uppercase tracking-tighter">Ahorro</span>
+                                <span className="bg-emerald-100 text-emerald-700 text-[7px] font-black px-1.5 py-0.5 rounded-sm uppercase">Mejor Precio</span>
                               )}
                             </div>
-                            <div className="flex items-center gap-6">
-                              <span className="text-xl font-black text-teal-600 tracking-tighter">₡{p.price.toLocaleString()}</span>
+                            <div className="flex items-center gap-4">
+                              <span className="text-sm font-black text-teal-600">₡{p.price.toLocaleString()}</span>
                               <a 
                                 href={getSearchUrl(p.pharmacy, item.name)} 
                                 target="_blank" 
                                 rel="noopener noreferrer"
-                                className="bg-slate-900 text-white px-5 py-2 rounded-xl font-bold hover:bg-teal-600 transition-all text-[11px] shadow-sm active:scale-95"
+                                className="bg-slate-900 text-white px-3 py-1 rounded-lg font-bold hover:bg-teal-600 transition-all text-[9px] uppercase tracking-tighter"
                               >
-                                COMPRAR
+                                Comprar
                               </a>
                             </div>
                           </div>
@@ -187,41 +169,18 @@ const App: React.FC = () => {
                 );
               })
             ) : (
-              <div className="bg-white rounded-[20px] border-2 border-dashed border-slate-200 p-16 text-center">
-                <AlertCircle size={60} className="mx-auto text-slate-100 mb-6" />
-                <h2 className="text-2xl font-black text-slate-400 mb-8 italic italic">"{searchTerm}" no está en el catálogo</h2>
-                <div className="flex flex-wrap justify-center gap-4">
-                  {['Fischel', 'La Bomba', 'FarmaValue', 'Sucre'].map(pharm => (
-                    <a 
-                      key={pharm}
-                      href={getSearchUrl(pharm, searchTerm)}
-                      target="_blank"
-                      className="bg-teal-600 text-white px-8 py-3 rounded-2xl font-black hover:scale-105 transition-transform text-sm"
-                    >
-                      Búsqueda en {pharm}
-                    </a>
-                  ))}
-                </div>
+              <div className="bg-white rounded-3xl border-2 border-dashed border-slate-200 p-10 text-center">
+                <AlertCircle size={40} className="mx-auto text-slate-200 mb-4" />
+                <h2 className="text-lg font-black text-slate-400">Sin resultados locales para "{searchTerm}"</h2>
               </div>
             )}
           </div>
         </section>
       </main>
 
-      {/* Footer Pro */}
-      <footer className="bg-slate-900 text-white py-20 text-center mt-20">
-        <div className="container mx-auto px-6">
-          <div className="text-4xl font-black mb-8 tracking-tighter opacity-30">MediCompare</div>
-          <div className="pt-12 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="text-lg font-black text-slate-400">
-               Diseñado por <span className="text-teal-250">Randall Castro Arias para Business Integarted LLC</span>
-            </div>
-            <div className="flex gap-6 text-slate-500 font-bold text-xs uppercase tracking-widest">
-               <a href="#" className="hover:text-white transition-colors">Privacidad</a>
-               <a href="#" className="hover:text-white transition-colors">Contacto</a>
-            </div>
-          </div>
-        </div>
+      <footer className="bg-white border-t border-slate-200 py-10 text-center">
+        <div className="text-xs font-black text-slate-400 uppercase tracking-widest mb-2">Diseñado por Randall Castro Arias</div>
+        <div className="text-[10px] text-slate-300">© 2026 MediCompare Costa Rica</div>
       </footer>
     </div>
   );
