@@ -16,7 +16,7 @@ def generate_database():
         "products": products
     }
     
-    with open('productos.json', 'w', encoding='utf-8') as f:
+    with open('public/productos.json', 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
     print("Base de datos generada exitosamente.")
 
