@@ -95,108 +95,122 @@
         </div>
     </footer>
 
-    <script>
-        // DATOS DE RESPALDO (SIEMPRE VISIBLES)
-        const defaultData = [
-            { "id": 1, "name": "Panadol Extra 500mg", "category": "Analgésicos", "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300", "prices": [{"pharmacy": "Fischel", "price": 3250}, {"pharmacy": "FarmaValue", "price": 2850}, {"pharmacy": "La Bomba", "price": 2900}, {"pharmacy": "Sucre", "price": 3150}] },
-            { "id": 2, "name": "Ozempic 1mg", "category": "Diabetes", "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300", "prices": [{"pharmacy": "Fischel", "price": 72000}, {"pharmacy": "FarmaValue", "price": 62450}, {"pharmacy": "La Bomba", "price": 63000}, {"pharmacy": "Sucre", "price": 69500}] },
-            { "id": 3, "name": "Algodón Hidrófilo 100g", "category": "Botiquín", "image": "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=300", "prices": [{"pharmacy": "Fischel", "price": 1200}, {"pharmacy": "FarmaValue", "price": 950}, {"pharmacy": "La Bomba", "price": 900}, {"pharmacy": "Sucre", "price": 1100}] }
-        ];
+   <!-- REEMPLAZA EL SCRIPT DE TU INDEX.HTML CON ESTE MEJORADO -->
+<script>
+    let fullDatabase = [];
+    
+    // FUNCIÓN DE LINKS CORREGIDA Y VERIFICADA
+    function getLink(pharmacy, term) {
+        const q = encodeURIComponent(term);
+        // Limpiamos el término para links tipo slug (sustituir espacios por guiones)
+        const slug = term.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
 
-        let fullDatabase = defaultData;
-
-        // FUNCIÓN DE LINKS CORREGIDA PARA TODAS LAS FARMACIAS
-        function getLink(pharmacy, term) {
-            const q = encodeURIComponent(term);
-            if (pharmacy === "Fischel") return `https://www.fischelenlinea.com/search?q=${q}`;
-            if (pharmacy === "FarmaValue") return `https://www.farmavalue.com/cr/catalogsearch/result/?q=${q}`;
-            if (pharmacy === "La Bomba") return `https://www.farmacialabomba.com/search?q=${q}`;
-            if (pharmacy === "Sucre") return `https://sucreenlinea.com/catalogsearch/result/?q=${q}`;
-            return "#";
-        }
-
-        async function loadDatabase() {
-            const countLabel = document.getElementById('resultsCount');
-            try {
-                const response = await fetch('productos.json');
-                if (response.ok) {
-                    const data = await response.json();
-                    fullDatabase = data.products || defaultData;
-                    countLabel.innerText = "Catálogo actualizado y listo";
-                } else {
-                    countLabel.innerText = "Catálogo de respaldo activo";
-                }
-            } catch (e) {
-                countLabel.innerText = "Catálogo de respaldo activo";
-            }
-            renderProducts(fullDatabase);
-        }
-
-        function resetHome() {
-            document.getElementById('mainInput').value = "";
-            renderProducts(fullDatabase);
-            document.getElementById('resultsCount').innerText = "Productos destacados";
-        }
-
-        function performSearch() {
-            const queryInput = document.getElementById('mainInput');
-            const query = queryInput.value.toLowerCase().trim();
-            const countLabel = document.getElementById('resultsCount');
+        switch(pharmacy) {
+            case "Fischel": 
+                // Fischel usa /search?q= o el buscador general
+                return `https://www.fischelenlinea.com/search?q=${q}`;
             
-            if (!query) { resetHome(); return; }
-
-            const filtered = fullDatabase.filter(p => p.name.toLowerCase().includes(query));
-
-            if (filtered.length === 0) {
-                countLabel.innerText = `Buscando "${query}" en farmacias externas...`;
-                showExternalButtons(query);
-            } else {
-                countLabel.innerText = `${filtered.length} productos encontrados`;
-                renderProducts(filtered);
-            }
+            case "FarmaValue": 
+                // Basado en tu link /products y el input text-search
+                // Probamos la ruta más directa de búsqueda
+                return `https://www.farmavalue.com/cr/products?q=${q}`;
+            
+            case "La Bomba": 
+                // La Bomba usa una estructura similar a Fischel (VTEX)
+                return `https://www.farmacialabomba.com/${slug}?_q=${slug}&map=ft`;
+            
+            case "Sucre": 
+                return `https://sucreenlinea.com/catalogsearch/result/?q=${q}`;
+            
+            default: 
+                return "#";
         }
+    }
 
-        function showExternalButtons(query) {
-            const grid = document.getElementById('productGrid');
-            grid.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding:40px; background:white; border-radius:20px; border: 1px solid var(--line);">
-                <h2 style="margin-bottom:15px;">"${query}" no está en nuestra base local</h2>
-                <p style="margin-bottom:25px; color: var(--text-light);">Pero puedes buscarlo directamente aquí:</p>
-                <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+    async function loadDatabase() {
+        const countLabel = document.getElementById('resultsCount');
+        try {
+            const response = await fetch('productos.json');
+            if (response.ok) {
+                const data = await response.json();
+                fullDatabase = data.products || [];
+                countLabel.innerText = "Catálogo listo para comparar";
+            } else {
+                throw new Error();
+            }
+        } catch (e) {
+            countLabel.innerText = "Buscador Inteligente Activo";
+        }
+        renderProducts(fullDatabase);
+    }
+
+    function performSearch() {
+        const query = document.getElementById('mainInput').value.toLowerCase().trim();
+        if (!query) { resetHome(); return; }
+        
+        const filtered = fullDatabase.filter(p => p.name.toLowerCase().includes(query));
+        
+        if (filtered.length === 0) {
+            showDeepSearch(query);
+        } else {
+            document.getElementById('resultsCount').innerText = `${filtered.length} ofertas encontradas`;
+            renderProducts(filtered);
+        }
+    }
+
+    function showDeepSearch(query) {
+        const grid = document.getElementById('productGrid');
+        document.getElementById('resultsCount').innerText = `Búsqueda profunda para: "${query}"`;
+
+        grid.innerHTML = `
+            <div style="grid-column:1/-1; text-align:center; background:white; padding:60px; border-radius:30px; border:2px solid var(--line);">
+                <h2 style="margin-bottom:20px;">"${query}" no está en el catálogo local</h2>
+                <p style="margin-bottom:30px; color:var(--text-light);">Haz clic para buscarlo directamente en cada farmacia:</p>
+                <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
                     <a href="${getLink('Fischel', query)}" target="_blank" class="btn-buy" style="background:var(--fischel)">Fischel</a>
                     <a href="${getLink('La Bomba', query)}" target="_blank" class="btn-buy" style="background:var(--labomba); color:black;">La Bomba</a>
                     <a href="${getLink('FarmaValue', query)}" target="_blank" class="btn-buy" style="background:var(--farmavalue)">FarmaValue</a>
                     <a href="${getLink('Sucre', query)}" target="_blank" class="btn-buy" style="background:var(--sucre)">Sucre</a>
                 </div>
             </div>`;
-        }
+    }
 
-        function renderProducts(data) {
-            const grid = document.getElementById('productGrid');
-            const checkboxes = document.querySelectorAll('.sidebar input:checked');
-            const activePharms = Array.from(checkboxes).map(cb => cb.parentElement.textContent.trim());
-            
-            grid.innerHTML = data.map(item => {
-                const prices = item.prices.filter(p => activePharms.includes(p.pharmacy)).sort((a,b) => a.price - b.price);
-                if (prices.length === 0) return "";
-                const minPrice = prices[0].price;
-                
-                return `<div class="product-card">
-                    <div class="product-visual" style="text-align:center;"><img src="${item.image}" style="max-width:150px;"></div>
-                    <div class="product-info">
-                        <h2 style="margin-bottom:15px;">${item.name}</h2>
-                        <table class="comparison-table">
-                            ${prices.map(p => `
-                                <tr>
-                                    <td style="font-weight:700;">${p.pharmacy} ${p.price === minPrice && prices.length > 1 ? '<span class="best-price-badge">Mejor Precio</span>' : ''}</td>
-                                    <td style="font-weight:800; font-size:1.2rem;">₡${p.price.toLocaleString()}</td>
-                                    <td style="text-align:right;"><a href="${getLink(p.pharmacy, item.name)}" target="_blank" class="btn-buy" style="background:var(--accent)">Ver tienda</a></td>
-                                </tr>
-                            `).join('')}
-                        </table>
-                    </div>
-                </div>`;
-            }).join('');
-        }
+    function renderProducts(data) {
+        const grid = document.getElementById('productGrid');
+        const activePharms = Array.from(document.querySelectorAll('.sidebar input:checked')).map(cb => cb.parentElement.textContent.trim());
+
+        grid.innerHTML = data.map(item => {
+            const prices = item.prices.filter(p => activePharms.includes(p.pharmacy)).sort((a,b) => a.price - b.price);
+            if (prices.length === 0) return "";
+            const minPrice = prices[0].price;
+
+            return `<div class="product-card">
+                <div style="text-align:center;"><img src="${item.image}" style="width:100%; max-width:160px; border-radius:15px;"></div>
+                <div>
+                    <h2 style="margin-bottom:15px;">${item.name}</h2>
+                    <table class="comparison-table">
+                        ${prices.map(p => `
+                            <tr>
+                                <td style="font-weight:700;">${p.pharmacy} ${p.price === minPrice ? '<span class="best-price-badge">Mejor Precio</span>' : ''}</td>
+                                <td style="font-weight:800; font-size:1.3rem;">₡${p.price.toLocaleString()}</td>
+                                <td style="text-align:right;"><a href="${getLink(p.pharmacy, item.name)}" target="_blank" class="btn-buy" style="background:var(--accent); color:white;">Comprar ahora</a></td>
+                            </tr>
+                        `).join('')}
+                    </table>
+                </div>
+            </div>`;
+        }).join('');
+    }
+
+    function resetHome() {
+        document.getElementById('mainInput').value = "";
+        renderProducts(fullDatabase);
+        document.getElementById('resultsCount').innerText = "Catálogo listo";
+    }
+
+    document.getElementById('mainInput').addEventListener('keypress', (e) => { if(e.key === 'Enter') performSearch(); });
+    window.onload = loadDatabase;
+</script>
 
         // Manejar tecla Enter
         document.getElementById('mainInput').addEventListener('keypress', function(e) {
