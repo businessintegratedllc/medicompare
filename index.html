@@ -3,65 +3,117 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MediCompare CR | El Comparador de Precios #1</title>
+    <meta name="description" content="MediCompare Costa Rica: comparador de precios de medicamentos. Ahorrá dinero y cuidá la salud de tu familia." />
+    <title>MediCompare CR | Comparador de Precios #1</title>
     <link rel="icon" type="image/png" href="medicompare_icon.png">
+    
+    <!-- Tipografías Sora y Manrope -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --primary: #0f172a; --accent: #0d9488; --accent-hover: #0f766e;
             --fischel: #0056b3; --farmavalue: #e31b23; --labomba: #eab308; --sucre: #008a45;
-            --bg: #f8fafc; --white: #ffffff; --line: #e2e8f0; --text: #1e293b; --text-light: #64748b;
+            --bg: #f6f8fb; --white: #ffffff; --line: #e2e8f0; --text: #1e293b; --text-light: #64748b;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
-        body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-        
-        /* Logo e Identidad - 100% Español */
-        header { background: var(--white); border-bottom: 2px solid var(--line); position: sticky; top: 0; z-index: 1000; padding: 20px 0; }
-        .header-inner { display: flex; justify-content: space-between; align-items: center; }
-        .logo-box { display: flex; align-items: center; gap: 15px; cursor: pointer; text-decoration: none; }
-        .logo-icon { background: var(--accent); color: white; width: 65px; height: 60px; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 2.2rem; box-shadow: 0 5px 15px rgba(13, 148, 136, 0.3); }
-        .logo-text div { color: var(--primary); font-weight: 900; font-size: 2.2rem; line-height: 1; letter-spacing: -1px; }
-        .logo-text span { color: var(--accent); font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-        
-        /* Hero & Buscador */
-        .hero { background: var(--white); padding: 80px 0; border-bottom: 1px solid var(--line); text-align: center; }
-        .hero h1 { font-size: 3.5rem; font-weight: 800; color: var(--primary); margin-bottom: 15px; letter-spacing: -0.04em; }
-        .hero p { color: var(--text-light); margin-bottom: 45px; font-size: 1.3rem; max-width: 750px; margin-left: auto; margin-right: auto; }
-        .search-box { max-width: 850px; margin: 0 auto; display: flex; gap: 10px; background: #f1f5f9; padding: 12px; border-radius: 100px; border: 2px solid transparent; transition: 0.4s; }
-        .search-box:focus-within { border-color: var(--accent); background: white; box-shadow: 0 20px 40px -10px rgba(0,0,0,0.12); }
-        .search-box input { flex: 1; border: none; background: none; padding: 10px 30px; font-size: 1.3rem; outline: none; font-weight: 600; color: var(--primary); }
-        .btn-main { background: var(--accent); color: white; border: none; padding: 14px 60px; border-radius: 100px; font-weight: 800; cursor: pointer; transition: 0.3s; font-size: 1.2rem; }
 
-        /* Layout */
-        .layout { display: grid; grid-template-columns: 280px 1fr; gap: 50px; margin: 60px 0; padding-bottom: 120px; }
-        .sidebar { background: white; border-radius: 30px; border: 1px solid var(--line); padding: 35px; height: fit-content; position: sticky; top: 140px; }
-        .check-item { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; cursor: pointer; font-weight: 700; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; }
+
+        body { 
+            font-family: 'Manrope', sans-serif; 
+            background-color: var(--bg); 
+            color: var(--text); 
+            line-height: 1.6;
+            background-image: 
+                linear-gradient(to right, rgba(13, 148, 136, 0.04) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(13, 148, 136, 0.04) 1px, transparent 1px);
+            background-size: 32px 32px; /* Efecto bg-grid del diseño integrado */
+        }
+
+        h1, h2, h3, h4 { font-family: 'Sora', sans-serif; letter-spacing: -0.02em; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        /* Scrollbar Personalizada */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #99f6e4; border-radius: 99px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+        /* Header con Glassmorphism */
+        header { 
+            background: rgba(255, 255, 255, 0.8); 
+            backdrop-filter: blur(12px); 
+            border-bottom: 1px solid var(--line); 
+            position: sticky; top: 0; z-index: 1000; padding: 18px 0; 
+        }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        
+        /* Logo Pro Randall Castro Arias */
+        .logo-box { display: flex; align-items: center; gap: 16px; cursor: pointer; text-decoration: none; }
+        .logo-symbol { 
+            background: linear-gradient(135deg, var(--accent), var(--accent-hover));
+            color: white; width: 60px; height: 55px; border-radius: 14px; 
+            display: flex; align-items: center; justify-content: center; 
+            font-weight: 800; font-size: 2rem; 
+            box-shadow: 0 10px 15px -3px rgba(13, 148, 136, 0.2);
+        }
+        .logo-text div { color: var(--primary); font-weight: 800; font-size: 2.2rem; line-height: 1; }
+        .logo-text span { color: var(--accent); font-size: 0.9rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Hero & Buscador SaaS */
+        .hero { padding: 90px 0; text-align: center; }
+        .hero h1 { font-size: 3.8rem; font-weight: 800; color: var(--primary); margin-bottom: 20px; }
+        .hero p { color: var(--text-light); margin-bottom: 45px; font-size: 1.3rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+        
+        .search-box { 
+            max-width: 850px; margin: 0 auto; display: flex; gap: 10px; 
+            background: white; padding: 12px; border-radius: 100px; 
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.08);
+            border: 1px solid var(--line); transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .search-box:focus-within { border-color: var(--accent); transform: scale(1.01); box-shadow: 0 30px 60px -12px rgba(13, 148, 136, 0.15); }
+        .search-box input { flex: 1; border: none; background: none; padding: 12px 30px; font-size: 1.2rem; outline: none; font-weight: 600; color: var(--primary); }
+        .btn-main { background: var(--accent); color: white; border: none; padding: 14px 60px; border-radius: 100px; font-weight: 800; cursor: pointer; transition: 0.3s; font-size: 1.1rem; }
+
+        /* Layout Grid */
+        .layout { display: grid; grid-template-columns: 280px 1fr; gap: 40px; margin-top: 50px; padding-bottom: 120px; }
+        .sidebar { background: white; border-radius: 28px; border: 1px solid var(--line); padding: 35px; height: fit-content; position: sticky; top: 120px; }
+        .sidebar h3 { font-size: 1.3rem; margin-bottom: 25px; font-weight: 800; }
+        .check-item { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; cursor: pointer; font-weight: 700; color: var(--primary); }
         .check-item input { width: 22px; height: 22px; accent-color: var(--accent); }
 
-        /* Tarjetas */
-        .product-grid { display: grid; gap: 35px; }
-        .product-card { background: white; border-radius: 40px; border: 1px solid var(--line); padding: 45px; display: grid; grid-template-columns: 220px 1fr; gap: 50px; transition: 0.4s; }
-        .product-card:hover { border-color: var(--accent); box-shadow: 0 40px 80px -20px rgba(0,0,0,0.1); transform: translateY(-8px); }
+        /* Tarjetas Animadas V6 */
+        .product-grid { display: grid; gap: 30px; }
+        .product-card { 
+            background: white; border-radius: 35px; border: 1px solid var(--line); padding: 45px; 
+            display: grid; grid-template-columns: 200px 1fr; gap: 50px; 
+            transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+            animation: fade-up 0.8s ease-out both;
+        }
+        .product-card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 40px 80px -20px rgba(0,0,0,0.1); }
         
-        /* Tabla */
+        @keyframes fade-up {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .comp-table { width: 100%; border-collapse: collapse; margin-top: 25px; }
-        .comp-table td { padding: 25px 0; border-top: 1px solid #f1f5f9; }
-        .price-val { font-weight: 900; font-size: 1.8rem; color: var(--accent); }
-        .badge-best { background: #d1fae5; color: #065f46; padding: 8px 15px; border-radius: 10px; font-size: 0.8rem; font-weight: 800; margin-left: 15px; text-transform: uppercase; }
-        .btn-go { padding: 15px 30px; border-radius: 15px; text-decoration: none; font-size: 1rem; font-weight: 800; background: var(--primary); color: white; transition: 0.3s; }
+        .comp-table td { padding: 22px 0; border-top: 1px solid #f8fafc; }
+        .price-val { font-weight: 800; font-size: 1.8rem; color: var(--accent); }
+        .badge-best { background: #d1fae5; color: #065f46; padding: 6px 14px; border-radius: 10px; font-size: 0.8rem; font-weight: 800; margin-left: 15px; text-transform: uppercase; }
+        .btn-go { padding: 14px 28px; border-radius: 14px; text-decoration: none; font-size: 1rem; font-weight: 800; background: var(--primary); color: white; transition: 0.3s; }
+        .btn-go:hover { background: var(--accent); box-shadow: 0 10px 20px rgba(13, 148, 136, 0.2); }
 
-        /* Búsqueda Directa (Links corregidos según tu lista) */
-        .empty-state { grid-column: 1/-1; text-align: center; padding: 100px 50px; background: white; border-radius: 50px; border: 2px dashed var(--line); }
-        .deep-btns { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
-        .btn-deep { padding: 20px 35px; border-radius: 18px; color: white; text-decoration: none; font-weight: 800; min-width: 220px; transition: 0.3s; text-align: center; font-size: 1.1rem; }
-
-        /* Footer con Créditos */
-        footer { background: var(--primary); color: white; padding: 100px 0; text-align: center; }
-        .credits-box { font-size: 1.4rem; color: #94a3b8; font-weight: 800; border-top: 2px solid #1e293b; padding-top: 40px; margin-top: 40px; display: inline-block; }
-        .credits-box span { color: var(--accent); }
+        /* Footer Elite */
+        footer { background: var(--primary); color: white; padding: 120px 0; text-align: center; }
+        .footer-logo { font-family: 'Sora', sans-serif; font-weight: 800; font-size: 2.8rem; margin-bottom: 10px; }
+        .credits { font-size: 1.3rem; color: #94a3b8; font-weight: 800; border-top: 2px solid #1e293b; padding-top: 40px; margin-top: 40px; display: inline-block; }
+        .credits span { color: var(--accent); }
 
         @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } .sidebar { display: none; } .product-card { grid-template-columns: 1fr; text-align: center; } }
     </style>
@@ -69,21 +121,18 @@
 <body>
     <header><div class="container header-inner">
         <a href="javascript:location.reload()" class="logo-box">
-            <div class="logo-icon">MC</div>
-            <div class="logo-text">
-                <div>MediCompare</div>
-                <span>Encuentra el mejor precio</span>
-            </div>
+            <div class="logo-symbol">MC</div>
+            <div class="logo-text"><div>MediCompare</div><span>Comparador de Precios</span></div>
         </a>
-        <div style="font-weight: 900; color: var(--accent); font-size: 1.2rem;">COSTA RICA</div>
+        <div style="font-weight: 900; color: var(--accent); font-size: 1.2rem; letter-spacing: 1.5px;">COSTA RICA</div>
     </div></header>
     
     <div class="hero"><div class="container">
-        <h1>Tu medicina al precio justo.</h1>
-        <p>Comparamos los precios de las farmacias líderes en Costa Rica para que no pagues ni un colón de más.</p>
+        <h1>Tu medicina al mejor precio.</h1>
+        <p>Encuentra el precio real en las farmacias más grandes de Costa Rica en segundos.</p>
         <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Escribe el nombre del medicamento aquí...">
-            <button class="btn-main" onclick="startSearch()">Buscar ahora</button>
+            <input type="text" id="searchInput" placeholder="Busca Panadol, Ozempic, Aspirina...">
+            <button class="btn-main" onclick="startSearch()">Buscar</button>
         </div>
     </div></div>
 
@@ -97,23 +146,23 @@
         </aside>
         
         <section class="results">
-            <h2 id="statusText" style="margin-bottom:35px; font-weight: 900; font-size: 2rem;">Catálogo de Ahorro</h2>
+            <h2 id="statusText" style="margin-bottom:35px; font-weight: 900; font-size: 2.2rem; color: var(--primary);">Catálogo Inteligente</h2>
             <div class="product-grid" id="mainGrid"></div>
         </section>
     </div></main>
 
     <footer><div class="container">
-        <div style="font-weight: 900; font-size: 2.5rem; margin-bottom: 15px;">MediCompare</div>
-        <p style="color: #64748b;">La herramienta esencial para la salud de tu familia en Costa Rica.</p>
-        <div class="credits-box">Diseñado por <span>Randall Castro Arias</span></div>
+        <div class="footer-logo">MediCompare</div>
+        <p style="color: #64748b; font-size: 1.2rem; max-width: 600px; margin: 0 auto;">Transparencia total en precios de salud para todas las familias de Costa Rica.</p>
+        <div class="credits">Diseñado por <span>Randall Castro Arias</span></div>
     </div></footer>
 
     <script>
         let db = [];
         
-        // MOTOR DE BÚSQUEDA DEFINITIVO CON LINKS PROPORCIONADOS POR TI
+        // MOTOR DE BÚSQUEDA INTEGRADO Y CORREGIDO
         function getSearchUrl(pharmacy, term) {
-            const q = encodeURIComponent(term.split(' ')[0]); // Solo usamos la primera palabra para evitar 404
+            const q = encodeURIComponent(term.split(' ')[0]);
             if (pharmacy === "Fischel") return `https://fischelenlinea.com/busqueda?f=${q}`;
             if (pharmacy === "FarmaValue") return `https://www.farmavalue.com/cr/products?q=${q}`;
             if (pharmacy === "La Bomba") return `https://www.farmacialabomba.com/busqueda?f=${q}`;
@@ -140,23 +189,21 @@
             if (filtered.length === 0) {
                 showDeepSearch(query);
             } else {
-                document.getElementById('statusText').innerText = `${filtered.length} ofertas encontradas`;
                 render(filtered);
             }
         }
 
         function showDeepSearch(query) {
             const grid = document.getElementById('mainGrid');
-            document.getElementById('statusText').innerText = `Búsqueda profunda para: "${query}"`;
             grid.innerHTML = `
-                <div class="empty-state">
-                    <h2 style="margin-bottom:20px; font-weight: 800; font-size: 2.2rem;">"${query}" no se encuentra localmente</h2>
-                    <p style="color:var(--text-light); margin-bottom:45px; font-size: 1.3rem;">Busca el precio en vivo directamente en las farmacias oficiales:</p>
-                    <div class="deep-btns">
-                        <a href="${getSearchUrl('Fischel', query)}" target="_blank" class="btn-deep" style="background:var(--fischel)">En Fischel</a>
-                        <a href="${getSearchUrl('FarmaValue', query)}" target="_blank" class="btn-deep" style="background:var(--farmavalue)">En FarmaValue</a>
-                        <a href="${getSearchUrl('La Bomba', query)}" target="_blank" class="btn-deep" style="background:var(--labomba); color:black;">En La Bomba</a>
-                        <a href="${getSearchUrl('Sucre', query)}" target="_blank" class="btn-deep" style="background:var(--sucre)">En Sucre</a>
+                <div style="grid-column:1/-1; text-align:center; background:white; padding:80px 40px; border-radius:40px; border:2px dashed var(--line); animation: fade-up 0.5s ease-out both;">
+                    <h2 style="margin-bottom:20px; font-weight: 800; font-size: 2.2rem;">"${query}" no está en el catálogo local</h2>
+                    <p style="color:var(--text-light); margin-bottom:45px; font-size: 1.3rem;">Pero puedes buscar el precio real directamente aquí:</p>
+                    <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
+                        <a href="${getSearchUrl('Fischel', query)}" target="_blank" class="btn-go" style="background:var(--fischel); padding: 20px 35px;">Fischel</a>
+                        <a href="${getSearchUrl('FarmaValue', query)}" target="_blank" class="btn-go" style="background:var(--farmavalue); padding: 20px 35px;">FarmaValue</a>
+                        <a href="${getSearchUrl('La Bomba', query)}" target="_blank" class="btn-go" style="background:var(--labomba); padding: 20px 35px; color:black;">La Bomba</a>
+                        <a href="${getSearchUrl('Sucre', query)}" target="_blank" class="btn-go" style="background:var(--sucre); padding: 20px 35px;">Sucre</a>
                     </div>
                 </div>`;
         }
