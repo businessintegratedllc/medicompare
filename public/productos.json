@@ -1,124 +1,96 @@
 {
-    "last_update": "08/07/2026 14:30",
+    "last_update": "08/07/2026 20:42",
     "products": [
         {
             "id": 1,
-            "name": "Panadol Extra 500mg (16 tabs)",
+            "name": "Panadol Extra 500mg",
             "category": "Analgésicos",
             "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300",
             "prices": [
-                {"pharmacy": "Fischel", "price": 3250},
-                {"pharmacy": "FarmaValue", "price": 2850},
-                {"pharmacy": "La Bomba", "price": 2900},
-                {"pharmacy": "Sucre", "price": 3100}
+                {
+                    "pharmacy": "Fischel",
+                    "price": 3250
+                },
+                {
+                    "pharmacy": "FarmaValue",
+                    "price": 2850
+                },
+                {
+                    "pharmacy": "La Bomba",
+                    "price": 2900
+                },
+                {
+                    "pharmacy": "Sucre",
+                    "price": 3100
+                }
             ]
         },
         {
             "id": 2,
-            "name": "Ozempic 1mg Pluma Inyectable",
+            "name": "Ozempic 1mg Pluma",
             "category": "Diabetes",
             "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300",
             "prices": [
-                {"pharmacy": "Fischel", "price": 72500},
-                {"pharmacy": "FarmaValue", "price": 62450},
-                {"pharmacy": "La Bomba", "price": 63000},
-                {"pharmacy": "Sucre", "price": 69000}
+                {
+                    "pharmacy": "FarmaValue",
+                    "price": 62450
+                },
+                {
+                    "pharmacy": "La Bomba",
+                    "price": 63000
+                },
+                {
+                    "pharmacy": "Fischel",
+                    "price": 72000
+                },
+                {
+                    "pharmacy": "Sucre",
+                    "price": 69500
+                }
             ]
         },
         {
             "id": 3,
-            "name": "Ensure Advance Vainilla 400g",
-            "category": "Nutrición",
-            "image": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300",
+            "name": "Acetaminofen Genfar 500mg",
+            "category": "Analgésicos",
+            "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300",
             "prices": [
-                {"pharmacy": "Fischel", "price": 14900},
-                {"pharmacy": "FarmaValue", "price": 13900},
-                {"pharmacy": "La Bomba", "price": 13800},
-                {"pharmacy": "Sucre", "price": 14500}
+                {
+                    "pharmacy": "Fischel",
+                    "price": 1200
+                },
+                {
+                    "pharmacy": "La Bomba",
+                    "price": 900
+                },
+                {
+                    "pharmacy": "Sucre",
+                    "price": 1100
+                },
+                {
+                    "pharmacy": "FarmaValue",
+                    "price": 850
+                }
             ]
         },
         {
             "id": 4,
-            "name": "Enterogermina 2 Billones (10 Amp)",
-            "category": "Digestivos",
-            "image": "https://images.unsplash.com/photo-1550572017-ed200f545dec?w=300",
-            "prices": [
-                {"pharmacy": "Fischel", "price": 8900},
-                {"pharmacy": "FarmaValue", "price": 7900},
-                {"pharmacy": "La Bomba", "price": 8000},
-                {"pharmacy": "Sucre", "price": 8700}
-            ]
-        },
-        {
-            "id": 5,
-            "name": "Advil Liquid Gels 200mg (20 caps)",
-            "category": "Analgésicos",
-            "image": "https://images.unsplash.com/photo-1587854692152-cbe660dbbb88?w=300",
-            "prices": [
-                {"pharmacy": "Fischel", "price": 5200},
-                {"pharmacy": "FarmaValue", "price": 4600},
-                {"pharmacy": "La Bomba", "price": 4700},
-                {"pharmacy": "Sucre", "price": 4900}
-            ]
-        },
-        {
-            "id": 6,
-            "name": "Loratadina 10mg Genfar (30 tabs)",
-            "category": "Alergias",
-            "image": "https://images.unsplash.com/photo-1585435557343-3b092031a831?w=300",
-            "prices": [
-                {"pharmacy": "Fischel", "price": 2500},
-                {"pharmacy": "FarmaValue", "price": 1800},
-                {"pharmacy": "La Bomba", "price": 1750},
-                {"pharmacy": "Sucre", "price": 2200}
-            ]
-        },
-        {
-            "id": 7,
-            "name": "Glucerna Líquida Vainilla 237ml",
+            "name": "Ensure Advance Vainilla",
             "category": "Nutrición",
             "image": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300",
             "prices": [
-                {"pharmacy": "Fischel", "price": 2100},
-                {"pharmacy": "FarmaValue", "price": 1850},
-                {"pharmacy": "La Bomba", "price": 1800},
-                {"pharmacy": "Sucre", "price": 1950}
-            ]
-        },
-        {
-            "id": 8,
-            "name": "Alka-Seltzer Boost (10 tabs)",
-            "category": "Digestivos",
-            "image": "https://images.unsplash.com/photo-1550572017-ed200f545dec?w=300",
-            "prices": [
-                {"pharmacy": "Fischel", "price": 3500},
-                {"pharmacy": "FarmaValue", "price": 2900},
-                {"pharmacy": "La Bomba", "price": 2800},
-                {"pharmacy": "Sucre", "price": 3200}
-            ]
-        },
-        {
-            "id": 9,
-            "name": "Vitamina C Redoxon Naranja",
-            "category": "Vitaminas",
-            "image": "https://images.unsplash.com/photo-1616671285442-df21f37e4663?w=300",
-            "prices": [
-                {"pharmacy": "Fischel", "price": 4900},
-                {"pharmacy": "FarmaValue", "price": 4200},
-                {"pharmacy": "La Bomba", "price": 4100},
-                {"pharmacy": "Sucre", "price": 4700}
-            ]
-        },
-        {
-            "id": 10,
-            "name": "Cataflam 50mg (20 tabs)",
-            "category": "Analgésicos",
-            "image": "https://images.unsplash.com/photo-1587854692152-cbe660dbbb88?w=300",
-            "prices": [
-                {"pharmacy": "Fischel", "price": 6800},
-                {"pharmacy": "FarmaValue", "price": 5900},
-                {"pharmacy": "La Bomba", "price": 6000},
-                {"pharmacy": "Sucre", "price": 6500}
+                {
+                    "pharmacy": "La Bomba",
+                    "price": 13800
+                },
+                {
+                    "pharmacy": "FarmaValue",
+                    "price": 13950
+                },
+                {
+                    "pharmacy": "Fischel",
+                    "price": 14500
+                }
             ]
         }
     ]
