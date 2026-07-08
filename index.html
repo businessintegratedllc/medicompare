@@ -18,167 +18,32 @@
         body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
         
-        /* Logo Profesional - Tamaño Extra Grande en Español */
-        header { background: var(--white); border-bottom: 2px solid var(--line); position: sticky; top: 0; z-index: 1000; padding: 20px 0; }
+        /* Logo Profesional Extra Grande en Español */
+        header { background: var(--white); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 1000; padding: 25px 0; }
         .header-inner { display: flex; justify-content: space-between; align-items: center; }
         .logo-box { display: flex; align-items: center; gap: 15px; cursor: pointer; text-decoration: none; }
-        .logo-symbol { background: var(--accent); color: white; width: 65px; height: 60px; border-radius: 15px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 2rem; }
-        .logo-text div { color: var(--primary); font-weight: 900; font-size: 2.2rem; line-height: 1; }
-        .logo-text span { color: var(--accent); font-size: 1rem; font-weight: 700; text-transform: uppercase; }
+        .logo-symbol { background: var(--accent); color: white; width: 70px; height: 65px; border-radius: 18px; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 2.2rem; }
+        .logo-text div { color: var(--primary); font-weight: 900; font-size: 2.5rem; line-height: 1; letter-spacing: -1px; }
+        .logo-text span { color: var(--accent); font-size: 1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
         
-        /* Buscador Hero */
-        .hero { background: var(--white); padding: 70px 0; border-bottom: 1px solid var(--line); text-align: center; }
-        .hero h1 { font-size: 3.5rem; font-weight: 800; color: var(--primary); margin-bottom: 30px; letter-spacing: -0.04em; }
-        .search-box { max-width: 850px; margin: 0 auto; display: flex; gap: 10px; background: #f1f5f9; padding: 10px; border-radius: 100px; border: 2px solid transparent; transition: 0.3s; }
-        .search-box:focus-within { border-color: var(--accent); background: white; box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        .search-box input { flex: 1; border: none; background: none; padding: 15px 35px; font-size: 1.3rem; outline: none; font-weight: 600; color: var(--primary); }
-        .btn-main { background: var(--accent); color: white; border: none; padding: 15px 50px; border-radius: 100px; font-weight: 800; cursor: pointer; font-size: 1.2rem; }
+        /* Hero & Buscador */
+        .hero { background: var(--white); padding: 80px 0; border-bottom: 1px solid var(--line); text-align: center; }
+        .hero h1 { font-size: 3.5rem; font-weight: 800; color: var(--primary); margin-bottom: 15px; letter-spacing: -0.04em; }
+        .hero p { color: var(--text-light); margin-bottom: 45px; font-size: 1.3rem; }
+        .search-box { max-width: 850px; margin: 0 auto; display: flex; gap: 10px; background: #f1f5f9; padding: 12px; border-radius: 100px; border: 2px solid transparent; }
+        .search-box:focus-within { border-color: var(--accent); background: white; box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1); }
+        .search-box input { flex: 1; border: none; background: none; padding: 10px 35px; font-size: 1.3rem; outline: none; font-weight: 600; color: var(--primary); }
+        .btn-main { background: var(--accent); color: white; border: none; padding: 14px 60px; border-radius: 100px; font-weight: 800; cursor: pointer; transition: 0.3s; font-size: 1.2rem; }
 
-        .layout { display: grid; grid-template-columns: 280px 1fr; gap: 50px; margin: 60px 0; padding-bottom: 100px; }
-        .sidebar { background: white; border-radius: 30px; border: 1px solid var(--line); padding: 35px; height: fit-content; position: sticky; top: 140px; }
+        /* Layout & Sidebar */
+        .layout { display: grid; grid-template-columns: 280px 1fr; gap: 50px; margin: 60px 0; padding-bottom: 120px; }
+        .sidebar { background: white; border-radius: 30px; border: 1px solid var(--line); padding: 35px; height: fit-content; position: sticky; top: 160px; }
+        .sidebar h3 { font-size: 1.3rem; margin-bottom: 30px; color: var(--primary); font-weight: 800; }
+        .check-item { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; cursor: pointer; font-weight: 700; }
+        .check-item input { width: 22px; height: 22px; accent-color: var(--accent); }
+
+        /* Tarjetas de Productos */
         .product-grid { display: grid; gap: 35px; }
-        
-        .product-card { background: white; border-radius: 40px; border: 1px solid var(--line); padding: 40px; display: grid; grid-template-columns: 200px 1fr; gap: 40px; transition: 0.3s; }
-        .product-card:hover { border-color: var(--accent); transform: translateY(-5px); }
-        .comp-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        .comp-table td { padding: 20px 0; border-top: 1px solid #f1f5f9; }
-        .price-val { font-weight: 900; font-size: 1.7rem; color: var(--accent); }
-        .badge-best { background: #d1fae5; color: #065f46; padding: 6px 12px; border-radius: 8px; font-size: 0.75rem; font-weight: 800; margin-left: 10px; }
-        .btn-go { padding: 12px 25px; border-radius: 12px; text-decoration: none; font-size: 0.95rem; font-weight: 800; background: var(--primary); color: white; }
-
-        /* Estilo para Búsqueda No Encontrada */
-        .empty-state { grid-column: 1/-1; text-align: center; padding: 80px 40px; background: white; border-radius: 40px; border: 2px dashed var(--line); }
-        .deep-btns { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 35px; }
-        .btn-deep { padding: 18px 30px; border-radius: 15px; color: white; text-decoration: none; font-weight: 800; min-width: 180px; text-align: center; transition: 0.3s; }
-        .btn-deep:hover { transform: scale(1.05); opacity: 0.9; }
-
-        footer { background: var(--primary); color: white; padding: 90px 0; text-align: center; margin-top: 100px; }
-        .credits { font-size: 1.2rem; color: #94a3b8; font-weight: 800; border-top: 1px solid #1e293b; padding-top: 35px; margin-top: 35px; display: inline-block; }
-    </style>
-</head>
-<body>
-    <header><div class="container header-inner">
-        <a href="javascript:location.reload()" class="logo-box">
-            <div class="logo-symbol">MC</div>
-            <div class="logo-text"><div>MediCompare</div><span>Comparador de Precios</span></div>
-        </a>
-        <div style="font-weight: 900; color: var(--accent);">COSTA RICA</div>
-    </div></header>
-    
-    <div class="hero"><div class="container">
-        <h1>Tu medicina al precio justo.</h1>
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="¿Qué medicamento buscas hoy?">
-            <button class="btn-main" onclick="startSearch()">Buscar</button>
-        </div>
-    </div></div>
-
-    <main class="container"><div class="layout">
-        <aside class="sidebar">
-            <h3>Farmacias</h3>
-            <label><input type="checkbox" checked onchange="startSearch()"> Fischel</label><br>
-            <label><input type="checkbox" checked onchange="startSearch()"> FarmaValue</label><br>
-            <label><input type="checkbox" checked onchange="startSearch()"> La Bomba</label><br>
-            <label><input type="checkbox" checked onchange="startSearch()"> Sucre</label>
-        </aside>
-        
-        <section class="results">
-            <h2 id="statusText" style="margin-bottom:30px; font-weight: 900; font-size: 1.8rem;">Catálogo de Medicamentos</h2>
-            <div class="product-grid" id="mainGrid"></div>
-        </section>
-    </div></main>
-
-    <footer><div class="container">
-        <div style="font-weight: 900; font-size: 2.5rem; margin-bottom: 10px;">MediCompare</div>
-        <p style="color: #64748b;">Ahorrando tiempo y dinero a los costarricenses.</p>
-        <div class="credits">Diseñado por Randall Castro Arias</div>
-    </div></footer>
-
-    <script>
-        let db = [];
-        
-        // MOTOR DE BÚSQUEDA CORREGIDO - VERIFICADO PARA FARMAVALUE
-        function getSearchUrl(pharmacy, term) {
-            const q = encodeURIComponent(term.split(' ')[0]); // Primera palabra clave
-            const cache = `&v=${Date.now()}`; // Evita resultados pegados
-
-            if (pharmacy === "Fischel") return `https://fischelenlinea.com/busqueda?f=${q}`;
-            if (pharmacy === "FarmaValue") return `https://www.farmavalue.com/cr/catalogsearch/result/?q=${q}`;
-            if (pharmacy === "La Bomba") return `https://www.farmacialabomba.com/busqueda?f=${q}`;
-            if (pharmacy === "Sucre") return `https://sucreenlinea.com/catalogsearch/result/?q=${q}`;
-            return "#";
-        }
-
-        async function init() {
-            try {
-                const res = await fetch('productos.json');
-                const data = await res.json();
-                db = data.products || [];
-                document.getElementById('statusText').innerText = `Catálogo Actualizado`;
-                render(db);
-            } catch (e) {
-                document.getElementById('statusText').innerText = "Motor en Tiempo Real Activo";
-                render([]);
-            }
-        }
-
-        function startSearch() {
-            const query = document.getElementById('searchInput').value.toLowerCase().trim();
-            if (!query) { render(db); return; }
-            const filtered = db.filter(p => p.name.toLowerCase().includes(query));
-            if (filtered.length === 0) {
-                showDeepSearch(query);
-            } else {
-                document.getElementById('statusText').innerText = `${filtered.length} ofertas encontradas`;
-                render(filtered);
-            }
-        }
-
-        function showDeepSearch(query) {
-            const grid = document.getElementById('mainGrid');
-            grid.innerHTML = `
-                <div class="empty-state">
-                    <h2 style="margin-bottom:20px;">"${query}" no está en el catálogo local</h2>
-                    <p style="color:var(--text-light); margin-bottom:30px;">Compara directamente en las farmacias oficiales:</p>
-                    <div class="deep-btns">
-                        <a href="${getSearchUrl('Fischel', query)}" target="_blank" class="btn-deep" style="background:var(--fischel)">En Fischel</a>
-                        <a href="${getSearchUrl('FarmaValue', query)}" target="_blank" class="btn-deep" style="background:var(--farmavalue)">En FarmaValue</a>
-                        <a href="${getSearchUrl('La Bomba', query)}" target="_blank" class="btn-deep" style="background:var(--labomba); color:black;">En La Bomba</a>
-                        <a href="${getSearchUrl('Sucre', query)}" target="_blank" class="btn-deep" style="background:var(--sucre)">En Sucre</a>
-                    </div>
-                </div>`;
-        }
-
-        function render(data) {
-            const grid = document.getElementById('mainGrid');
-            const active = Array.from(document.querySelectorAll('.sidebar input:checked')).map(cb => cb.parentElement.textContent.trim());
-            
-            grid.innerHTML = data.map(item => {
-                const prices = item.prices.filter(p => active.includes(p.pharmacy)).sort((a,b) => a.price - b.price);
-                if (prices.length === 0) return "";
-                const min = prices[0].price;
-
-                return `
-                <div class="product-card">
-                    <div style="text-align:center;"><img src="${item.image}" style="width:100%; max-width:160px; border-radius:20px;"></div>
-                    <div>
-                        <h2 style="margin-bottom:20px; font-size:1.8rem; font-weight:800;">${item.name}</h2>
-                        <table class="comp-table">
-                            ${prices.map(p => `
-                                <tr>
-                                    <td style="font-weight:800; font-size:1.1rem;">${p.pharmacy} ${p.price === min && prices.length > 1 ? '<span class="badge-best">Mejor Precio</span>' : ''}</td>
-                                    <td class="price-val">₡${p.price.toLocaleString()}</td>
-                                    <td style="text-align:right;"><a href="${getSearchUrl(p.pharmacy, item.name)}" target="_blank" class="btn-go">Comprar</a></td>
-                                </tr>
-                            `).join('')}
-                        </table>
-                    </div>
-                </div>`;
-            }).join('');
-        }
-
-        document.getElementById('searchInput').addEventListener('keypress', (e) => { if(e.key === 'Enter') startSearch(); });
-        window.onload = init;
-    </script>
-</body>
-</html>
+        .product-card { background: white; border-radius: 40px; border: 1px solid var(--line); padding: 45px; display: grid; grid-template-columns: 200px 1fr; gap: 50px; transition: 0.4s; }
+        .product-card:hover { border-color: var(--accent); box-shadow: 0 40px 80px -20px rgba(0,0,0,0.1); transform: translateY(-8px); }
+        .product-img { width: 10
