@@ -1,9 +1,9 @@
 {
-    "last_update": "08/07/2026 15:17",
+    "last_update": "08/07/2026 15:50",
     "products": [
         {
             "id": 1,
-            "name": "Panadol Extra 500mg (16 tabs)",
+            "name": "Panadol Extra 500mg",
             "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300",
             "prices": [
                 {
@@ -26,13 +26,9 @@
         },
         {
             "id": 2,
-            "name": "Ozempic 1mg Pluma Inyectable",
+            "name": "Ozempic 1mg Pluma",
             "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300",
             "prices": [
-                {
-                    "pharmacy": "Fischel",
-                    "price": 72500
-                },
                 {
                     "pharmacy": "FarmaValue",
                     "price": 62450
@@ -40,39 +36,12 @@
                 {
                     "pharmacy": "La Bomba",
                     "price": 63000
-                },
-                {
-                    "pharmacy": "Sucre",
-                    "price": 69000
                 }
             ]
         },
         {
             "id": 3,
-            "name": "Ensure Advance Vainilla 400g",
-            "image": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300",
-            "prices": [
-                {
-                    "pharmacy": "Fischel",
-                    "price": 14900
-                },
-                {
-                    "pharmacy": "FarmaValue",
-                    "price": 13900
-                },
-                {
-                    "pharmacy": "La Bomba",
-                    "price": 13800
-                },
-                {
-                    "pharmacy": "Sucre",
-                    "price": 14500
-                }
-            ]
-        },
-        {
-            "id": 4,
-            "name": "Acetaminofen 500mg Genfar",
+            "name": "Acetaminofen Genfar",
             "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300",
             "prices": [
                 {
@@ -80,384 +49,12 @@
                     "price": 1200
                 },
                 {
-                    "pharmacy": "FarmaValue",
-                    "price": 850
-                },
-                {
                     "pharmacy": "La Bomba",
-                    "price": 800
+                    "price": 900
                 },
                 {
                     "pharmacy": "Sucre",
-                    "price": 1000
-                }
-            ]
-        },
-        {
-            "id": 5,
-            "name": "Enterogermina 2 Billones 10 Amp",
-            "image": "https://images.unsplash.com/photo-1550572017-ed200f545dec?w=300",
-            "prices": [
-                {
-                    "pharmacy": "Fischel",
-                    "price": 8900
-                },
-                {
-                    "pharmacy": "FarmaValue",
-                    "price": 7900
-                },
-                {
-                    "pharmacy": "La Bomba",
-                    "price": 8000
-                },
-                {
-                    "pharmacy": "Sucre",
-                    "price": 8700
-                }
-            ]
-        },
-        {
-            "id": 6,
-            "name": "Advil Liquid Gels 200mg",
-            "image": "https://images.unsplash.com/photo-1587854692152-cbe660dbbb88?w=300",
-            "prices": [
-                {
-                    "pharmacy": "Fischel",
-                    "price": 5200
-                },
-                {
-                    "pharmacy": "FarmaValue",
-                    "price": 4600
-                },
-                {
-                    "pharmacy": "La Bomba",
-                    "price": 4700
-                },
-                {
-                    "pharmacy": "Sucre",
-                    "price": 4900
-                }
-            ]
-        },
-        {
-            "id": 7,
-            "name": "Alka-Seltzer Boost (10 tabs)",
-            "image": "https://images.unsplash.com/photo-1550572017-ed200f545dec?w=300",
-            "prices": [
-                {
-                    "pharmacy": "Fischel",
-                    "price": 3500
-                },
-                {
-                    "pharmacy": "FarmaValue",
-                    "price": 2900
-                },
-                {
-                    "pharmacy": "La Bomba",
-                    "price": 2800
-                },
-                {
-                    "pharmacy": "Sucre",
-                    "price": 3200
-                }
-            ]
-        },
-        {
-            "id": 8,
-            "name": "Vitamina C Redoxon Naranja",
-            "image": "https://images.unsplash.com/photo-1616671285442-df21f37e4663?w=300",
-            "prices": [
-                {
-                    "pharmacy": "Fischel",
-                    "price": 4900
-                },
-                {
-                    "pharmacy": "FarmaValue",
-                    "price": 4200
-                },
-                {
-                    "pharmacy": "La Bomba",
-                    "price": 4100
-                },
-                {
-                    "pharmacy": "Sucre",
-                    "price": 4700
-                }
-            ]
-        },
-        {
-            "id": 9,
-            "name": "Tapsin Caliente Dia (Sobre)",
-            "image": "https://images.unsplash.com/photo-1512069772995-ec65ed45afd6?w=300",
-            "prices": [
-                {
-                    "pharmacy": "Fischel",
-                    "price": 850
-                },
-                {
-                    "pharmacy": "FarmaValue",
-                    "price": 650
-                },
-                {
-                    "pharmacy": "La Bomba",
-                    "price": 600
-                },
-                {
-                    "pharmacy": "Sucre",
-                    "price": 750
-                }
-            ]
-        },
-        {
-            "id": 10,
-            "name": "Loratadina 10mg (30 tabs)",
-            "image": "https://images.unsplash.com/photo-1585435557343-3b092031a831?w=300",
-            "prices": [
-                {
-                    "pharmacy": "Fischel",
-                    "price": 2500
-                },
-                {
-                    "pharmacy": "FarmaValue",
-                    "price": 1800
-                },
-                {
-                    "pharmacy": "La Bomba",
-                    "price": 1750
-                },
-                {
-                    "pharmacy": "Sucre",
-                    "price": 2200
-                }
-            ]
-        },
-        {
-            "id": 50,
-            "name": "Alcohol 70%",
-            "image": "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=300",
-            "prices": [
-                {
-                    "pharmacy": "Fischel",
-                    "price": 1900
-                },
-                {
-                    "pharmacy": "FarmaValue",
-                    "price": 1500
-                },
-                {
-                    "pharmacy": "La Bomba",
-                    "price": 1450
-                },
-                {
-                    "pharmacy": "Sucre",
-                    "price": 1700
-                }
-            ]
-        },
-        {
-            "id": 51,
-            "name": "Gasa Esteril",
-            "image": "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=300",
-            "prices": [
-                {
-                    "pharmacy": "Fischel",
-                    "price": 2200
-                },
-                {
-                    "pharmacy": "FarmaValue",
-                    "price": 1800
-                },
-                {
-                    "pharmacy": "La Bomba",
-                    "price": 1750
-                },
-                {
-                    "pharmacy": "Sucre",
-                    "price": 2000
-                }
-            ]
-        },
-        {
-            "id": 52,
-            "name": "Curitas",
-            "image": "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=300",
-            "prices": [
-                {
-                    "pharmacy": "Fischel",
-                    "price": 2500
-                },
-                {
-                    "pharmacy": "FarmaValue",
-                    "price": 2100
-                },
-                {
-                    "pharmacy": "La Bomba",
-                    "price": 2050
-                },
-                {
-                    "pharmacy": "Sucre",
-                    "price": 2300
-                }
-            ]
-        },
-        {
-            "id": 53,
-            "name": "Mascarilla KN95",
-            "image": "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=300",
-            "prices": [
-                {
-                    "pharmacy": "Fischel",
-                    "price": 2800
-                },
-                {
-                    "pharmacy": "FarmaValue",
-                    "price": 2400
-                },
-                {
-                    "pharmacy": "La Bomba",
-                    "price": 2350
-                },
-                {
-                    "pharmacy": "Sucre",
-                    "price": 2600
-                }
-            ]
-        },
-        {
-            "id": 54,
-            "name": "Jabon Antiseptico",
-            "image": "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=300",
-            "prices": [
-                {
-                    "pharmacy": "Fischel",
-                    "price": 3100
-                },
-                {
-                    "pharmacy": "FarmaValue",
-                    "price": 2700
-                },
-                {
-                    "pharmacy": "La Bomba",
-                    "price": 2650
-                },
-                {
-                    "pharmacy": "Sucre",
-                    "price": 2900
-                }
-            ]
-        },
-        {
-            "id": 55,
-            "name": "Dolo-Neurobion",
-            "image": "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=300",
-            "prices": [
-                {
-                    "pharmacy": "Fischel",
-                    "price": 3400
-                },
-                {
-                    "pharmacy": "FarmaValue",
-                    "price": 3000
-                },
-                {
-                    "pharmacy": "La Bomba",
-                    "price": 2950
-                },
-                {
-                    "pharmacy": "Sucre",
-                    "price": 3200
-                }
-            ]
-        },
-        {
-            "id": 56,
-            "name": "Cataflam 50mg",
-            "image": "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=300",
-            "prices": [
-                {
-                    "pharmacy": "Fischel",
-                    "price": 3700
-                },
-                {
-                    "pharmacy": "FarmaValue",
-                    "price": 3300
-                },
-                {
-                    "pharmacy": "La Bomba",
-                    "price": 3250
-                },
-                {
-                    "pharmacy": "Sucre",
-                    "price": 3500
-                }
-            ]
-        },
-        {
-            "id": 57,
-            "name": "Buscapina Duo",
-            "image": "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=300",
-            "prices": [
-                {
-                    "pharmacy": "Fischel",
-                    "price": 4000
-                },
-                {
-                    "pharmacy": "FarmaValue",
-                    "price": 3600
-                },
-                {
-                    "pharmacy": "La Bomba",
-                    "price": 3550
-                },
-                {
-                    "pharmacy": "Sucre",
-                    "price": 3800
-                }
-            ]
-        },
-        {
-            "id": 58,
-            "name": "Enalapril 20mg",
-            "image": "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=300",
-            "prices": [
-                {
-                    "pharmacy": "Fischel",
-                    "price": 4300
-                },
-                {
-                    "pharmacy": "FarmaValue",
-                    "price": 3900
-                },
-                {
-                    "pharmacy": "La Bomba",
-                    "price": 3850
-                },
-                {
-                    "pharmacy": "Sucre",
-                    "price": 4100
-                }
-            ]
-        },
-        {
-            "id": 59,
-            "name": "Metformina 850mg",
-            "image": "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=300",
-            "prices": [
-                {
-                    "pharmacy": "Fischel",
-                    "price": 4600
-                },
-                {
-                    "pharmacy": "FarmaValue",
-                    "price": 4200
-                },
-                {
-                    "pharmacy": "La Bomba",
-                    "price": 4150
-                },
-                {
-                    "pharmacy": "Sucre",
-                    "price": 4400
+                    "price": 1100
                 }
             ]
         }
