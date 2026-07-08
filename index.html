@@ -1,167 +1,98 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MediCompare CR | El Comparador de Precios #1</title>
-    <link rel="icon" type="image/png" href="medicompare_icon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #0f172a; --accent: #2563eb; --accent-hover: #1d4ed8;
-            --fischel: #0056b3; --farmavalue: #e31b23; --labomba: #ffcc00; --sucre: #008a45;
-            --success: #059669; --success-bg: #d1fae5; --bg: #f8fafc; --white: #ffffff;
-            --line: #e2e8f0; --text: #334155; --text-light: #64748b;
-            --radius-lg: 24px; --radius-md: 14px; --shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05);
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
-        body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-        header { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 1000; padding: 15px 0; }
-        .header-inner { display: flex; justify-content: space-between; align-items: center; }
-        .logo { cursor: pointer; transition: 0.3s; }
-        .logo img { height: 75px; } /* LOGO MÁS GRANDE */
-        .logo:hover { transform: scale(1.05); }
-        .search-section { background: var(--white); padding: 50px 0; border-bottom: 1px solid var(--line); text-align: center; }
-        .search-section h1 { font-size: 2.5rem; font-weight: 800; color: var(--primary); margin-bottom: 30px; letter-spacing: -0.02em; }
-        .search-container { max-width: 800px; margin: 0 auto; }
-        .search-group { display: flex; gap: 10px; background: #f1f5f9; padding: 8px; border-radius: 100px; border: 2px solid transparent; box-shadow: var(--shadow); }
-        .search-group:focus-within { border-color: var(--accent); background: white; }
-        .search-group input { flex: 1; border: none; background: none; padding: 12px 25px; font-size: 1.1rem; outline: none; font-weight: 600; }
-        .btn-search { background: var(--accent); color: white; border: none; padding: 12px 35px; border-radius: 100px; font-weight: 800; cursor: pointer; transition: 0.3s; }
-        .main-layout { display: grid; grid-template-columns: 280px 1fr; gap: 40px; margin-top: 40px; padding-bottom: 80px; }
-        .filter-card { background: white; border-radius: var(--radius-md); border: 1px solid var(--line); padding: 20px; }
-        .product-card { background: white; border-radius: var(--radius-lg); border: 1px solid var(--line); padding: 30px; display: grid; grid-template-columns: 180px 1fr; gap: 30px; margin-bottom: 25px; transition: 0.3s; }
-        .product-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: var(--shadow); }
-        .product-visual img { width: 100%; border-radius: 12px; mix-blend-mode: multiply; }
-        .comparison-table { width: 100%; border-collapse: collapse; }
-        .comparison-table td { padding: 15px 0; border-top: 1px solid #f1f5f9; }
-        .best-price-badge { background: var(--success-bg); color: var(--success); padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; font-weight: 800; margin-left: 10px; }
-        .btn-buy { padding: 8px 15px; border-radius: 8px; text-decoration: none; font-size: 0.85rem; font-weight: 700; background: var(--primary); color: white; }
-        footer { background: var(--primary); color: white; padding: 60px 0; text-align: center; }
-        .footer-credits { font-size: 1.1rem; color: #94a3b8; font-weight: 700; border-top: 1px solid #1e293b; padding-top: 20px; display: inline-block; margin-top: 20px; }
-        @media (max-width: 900px) { .main-layout { grid-template-columns: 1fr; } .sidebar { display: none; } .product-card { grid-template-columns: 1fr; } }
-    </style>
-</head>
-<body>
-    <header><div class="container header-inner"><div class="logo" onclick="resetHome()"><img src="medicompare_logo.png"></div><div style="font-weight: 800; color: var(--accent);">COSTA RICA</div></div></header>
-    
-    <div class="search-section">
-        <div class="container">
-            <h1>Compara y Ahorra en tus Medicamentos</h1>
-            <div class="search-container">
-                <div class="search-group">
-                    <input type="text" id="mainInput" placeholder="Ej: Panadol, Ozempic, Algodon, Aspirina...">
-                    <button class="btn-search" onclick="performSearch()">Buscar ahora</button>
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- REEMPLAZA EL SCRIPT DE TU INDEX.HTML CON ESTE MEJORADO -->
+<script>
+    let fullDatabase = [];
 
-    <main class="container">
-        <div class="main-layout">
-            <aside class="sidebar">
-                <h3>Farmacias</h3>
-                <div class="filter-card">
-                    <label><input type="checkbox" checked onchange="performSearch()"> Fischel</label><br>
-                    <label><input type="checkbox" checked onchange="performSearch()"> FarmaValue</label><br>
-                    <label><input type="checkbox" checked onchange="performSearch()"> La Bomba</label><br>
-                    <label><input type="checkbox" checked onchange="performSearch()"> Sucre</label>
-                </div>
-            </aside>
-            
-            <section class="results-area">
-                <h2 id="resultsCount" style="margin-bottom:20px;">Cargando base de datos...</h2>
-                <div class="product-grid" id="productGrid"></div>
-            </section>
-        </div>
-    </main>
-
-    <footer>
-        <div class="container">
-            <h2>MediCompare Costa Rica</h2>
-            <div class="footer-credits">Diseñado por Randall Castro Arias</div>
-        </div>
-    </footer>
-
-    <script>
-        // BASE DE DATOS DE RESPALDO (SI FALLA EL JSON EXTERNO)
-        const defaultData = [
-            { "id": 1, "name": "Panadol Extra 500mg", "category": "Analgésicos", "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300", "prices": [{"pharmacy": "Fischel", "price": 3250, "link": "#"}, {"pharmacy": "FarmaValue", "price": 2850, "link": "#"}, {"pharmacy": "La Bomba", "price": 2900, "link": "#"}, {"pharmacy": "Sucre", "price": 3150, "link": "#"}] },
-            { "id": 2, "name": "Ozempic 1mg", "category": "Diabetes", "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300", "prices": [{"pharmacy": "Fischel", "price": 72000, "link": "#"}, {"pharmacy": "FarmaValue", "price": 62450, "link": "#"}, {"pharmacy": "La Bomba", "price": 63000, "link": "#"}, {"pharmacy": "Sucre", "price": 69500, "link": "#"}] },
-            { "id": 3, "name": "Algodón Hidrófilo 100g", "category": "Botiquín", "image": "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=300", "prices": [{"pharmacy": "Fischel", "price": 1200, "link": "#"}, {"pharmacy": "FarmaValue", "price": 950, "link": "#"}, {"pharmacy": "La Bomba", "price": 900, "link": "#"}, {"pharmacy": "Sucre", "price": 1100, "link": "#"}] }
-        ];
-
-        let fullDatabase = defaultData;
-
-        async function loadDatabase() {
-            const countLabel = document.getElementById('resultsCount');
-            try {
-                const response = await fetch('productos.json');
-                if (response.ok) {
-                    const data = await response.json();
-                    fullDatabase = data.products || defaultData;
-                    countLabel.innerText = `Datos actualizados: ${data.last_update || 'Hoy'}`;
-                } else {
-                    throw new Error();
-                }
-            } catch (e) {
-                countLabel.innerText = "Modo Offline (Datos de respaldo)";
-            }
+    async function loadDatabase() {
+        const countLabel = document.getElementById('resultsCount');
+        try {
+            const response = await fetch('productos.json');
+            const data = await response.json();
+            fullDatabase = data.products || [];
+            countLabel.innerText = `Catálogo actualizado: ${data.last_update}`;
             renderProducts(fullDatabase);
+        } catch (e) {
+            countLabel.innerText = "Modo Online: Buscando en tiempo real...";
+            renderProducts([]); 
         }
+    }
 
-        function resetHome() {
-            document.getElementById('mainInput').value = "";
+    function performSearch() {
+        const query = document.getElementById('mainInput').value.toLowerCase().trim();
+        const grid = document.getElementById('productGrid');
+        
+        if (!query) {
             renderProducts(fullDatabase);
-            document.getElementById('resultsCount').innerText = "Todos los productos destacados";
+            document.getElementById('resultsCount').innerText = "Productos destacados";
+            return;
         }
 
-        function performSearch() {
-            const query = document.getElementById('mainInput').value.toLowerCase().trim();
-            const countLabel = document.getElementById('resultsCount');
+        const filtered = fullDatabase.filter(p => 
+            p.name.toLowerCase().includes(query) || 
+            (p.category && p.category.toLowerCase().includes(query))
+        );
+
+        if (filtered.length === 0) {
+            showExternalSearch(query);
+        } else {
+            document.getElementById('resultsCount').innerText = `${filtered.length} comparativas encontradas para "${query}"`;
+            renderProducts(filtered);
+        }
+    }
+
+    function renderProducts(data) {
+        const grid = document.getElementById('productGrid');
+        const activePharms = Array.from(document.querySelectorAll('.sidebar input:checked')).map(cb => cb.parentElement.textContent.trim());
+
+        grid.innerHTML = data.map(item => {
+            // Filtrar precios por farmacias seleccionadas y ordenarlos de menor a mayor
+            const availablePrices = item.prices
+                .filter(p => activePharms.includes(p.pharmacy))
+                .sort((a, b) => a.price - b.price);
+
+            if (availablePrices.length === 0) return "";
             
-            if (!query) { resetHome(); return; }
+            const minPrice = availablePrices[0].price;
 
-            const filtered = fullDatabase.filter(p => p.name.toLowerCase().includes(query) || p.category.toLowerCase().includes(query));
-
-            if (filtered.length === 0) {
-                countLabel.innerText = `Buscando "${query}" en farmacias...`;
-                showExternalButtons(query);
-            } else {
-                countLabel.innerText = `${filtered.length} productos encontrados`;
-                renderProducts(filtered);
-            }
-        }
-
-        function showExternalButtons(query) {
-            const grid = document.getElementById('productGrid');
-            grid.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding:40px; background:white; border-radius:20px; border: 1px solid var(--line);">
-                <h2 style="margin-bottom:15px;">No hay resultados locales para "${query}"</h2>
-                <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
-                    <a href="https://fischelenlinea.com/search?q=${query}" target="_blank" class="btn-buy" style="background:var(--fischel)">Fischel</a>
-                    <a href="https://farmacialabomba.com/${query}?_q=${query}&map=ft" target="_blank" class="btn-buy" style="background:var(--labomba); color:black;">La Bomba</a>
-                    <a href="https://www.farmavalue.com/cr/catalogsearch/result/?q=${query}" target="_blank" class="btn-buy" style="background:var(--farmavalue)">FarmaValue</a>
-                    <a href="https://sucreenlinea.com/catalogsearch/result/?q=${query}" target="_blank" class="btn-buy" style="background:var(--sucre)">Sucre</a>
+            return `
+            <div class="product-card">
+                <div class="product-visual">
+                    <img src="${item.image}">
+                    <div style="margin-top:10px; font-weight:800; color:var(--text-light); font-size:0.7rem; text-transform:uppercase;">${item.category}</div>
+                </div>
+                <div class="product-info">
+                    <h2 style="margin-bottom:20px;">${item.name}</h2>
+                    <table class="comparison-table">
+                        ${availablePrices.map(p => `
+                            <tr>
+                                <td style="font-weight:700; width:40%;">
+                                    ${p.pharmacy} 
+                                    ${p.price === minPrice ? '<span class="best-price-badge">¡MEJOR PRECIO!</span>' : ''}
+                                </td>
+                                <td style="font-weight:800; font-size:1.3rem; color:var(--primary);">₡${p.price.toLocaleString()}</td>
+                                <td style="text-align:right;">
+                                    <a href="${p.link}" target="_blank" class="btn-buy" style="background:var(--accent); color:white; border-radius:10px; padding:10px 20px;">Comprar Ahora</a>
+                                </td>
+                            </tr>
+                        `).join('')}
+                    </table>
                 </div>
             </div>`;
-        }
+        }).join('');
+    }
 
-        function renderProducts(data) {
-            const grid = document.getElementById('productGrid');
-            const activePharms = Array.from(document.querySelectorAll('.sidebar input:checked')).map(cb => cb.parentElement.textContent.trim());
-            grid.innerHTML = data.map(item => {
-                const prices = item.prices.filter(p => activePharms.includes(p.pharmacy));
-                if (prices.length === 0) return "";
-                const minPrice = Math.min(...prices.map(p => p.price));
-                return `<div class="product-card"><div class="product-visual"><img src="${item.image}"></div><div class="product-info"><h2>${item.name}</h2><table class="comparison-table">${prices.map(p => `<tr><td style="font-weight:700;">${p.pharmacy} ${p.price === minPrice && prices.length > 1 ? '<span class="best-price-badge">Mejor Precio</span>' : ''}</td><td style="font-weight:800; font-size:1.2rem;">₡${p.price.toLocaleString()}</td><td style="text-align:right;"><a href="${p.link}" target="_blank" class="btn-buy">Ver tienda</a></td></tr>`).join('')}</table></div></div>`;
-            }).join('');
-        }
-
-        document.getElementById('mainInput').addEventListener('keypress', (e) => { if(e.key === 'Enter') performSearch(); });
-        window.onload = loadDatabase;
-    </script>
-</body>
-</html>
+    function showExternalSearch(query) {
+        const grid = document.getElementById('productGrid');
+        document.getElementById('resultsCount').innerText = `Búsqueda profunda para "${query}"`;
+        grid.innerHTML = `
+            <div style="grid-column:1/-1; text-align:center; background:white; padding:60px; border-radius:30px; border:2px dashed var(--line);">
+                <h2 style="margin-bottom:20px;">"${query}" no está en el catálogo rápido</h2>
+                <p style="margin-bottom:30px; color:var(--text-light);">Hemos activado el motor de búsqueda directa en las 4 farmacias oficiales:</p>
+                <div style="display:flex; gap:15px; justify-content:center; flex-wrap:wrap;">
+                    <a href="https://fischelenlinea.com/search?q=${query}" target="_blank" class="btn-buy" style="background:var(--fischel); color:white;">Buscar en Fischel</a>
+                    <a href="https://farmacialabomba.com/${query}?_q=${query}&map=ft" target="_blank" class="btn-buy" style="background:var(--labomba); color:black;">Buscar en La Bomba</a>
+                    <a href="https://www.farmavalue.com/cr/catalogsearch/result/?q=${query}" target="_blank" class="btn-buy" style="background:var(--farmavalue); color:white;">Buscar en FarmaValue</a>
+                    <a href="https://sucreenlinea.com/catalogsearch/result/?q=${query}" target="_blank" class="btn-buy" style="background:var(--sucre); color:white;">Buscar en Sucre</a>
+                </div>
+            </div>`;
+    }
+</script>
