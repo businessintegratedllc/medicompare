@@ -1,0 +1,62 @@
+{
+    "last_update": "08/07/2026 17:34",
+    "products": [
+        {
+            "id": 1,
+            "name": "Panadol Extra 500mg",
+            "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300",
+            "prices": [
+                {
+                    "pharmacy": "Fischel",
+                    "price": 3250
+                },
+                {
+                    "pharmacy": "FarmaValue",
+                    "price": 2850
+                },
+                {
+                    "pharmacy": "La Bomba",
+                    "price": 2900
+                },
+                {
+                    "pharmacy": "Sucre",
+                    "price": 3100
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Ozempic 1mg Pluma",
+            "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300",
+            "prices": [
+                {
+                    "pharmacy": "FarmaValue",
+                    "price": 62450
+                },
+                {
+                    "pharmacy": "La Bomba",
+                    "price": 63000
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Acetaminofen Genfar",
+            "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300",
+            "prices": [
+                {
+                    "pharmacy": "Fischel",
+                    "price": 1200
+                },
+                {
+                    "pharmacy": "La Bomba",
+                    "price": 900
+                },
+                {
+                    "pharmacy": "Sucre",
+                    "price": 1100
+                }
+            ]
+        }
+    ]
+}
