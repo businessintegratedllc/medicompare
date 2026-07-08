@@ -1,339 +1,56 @@
 {
-    "last_update": "08/07/2026 14:14",
+    "last_update": "08/07/2026 14:55",
     "products": [
         {
             "id": 1,
             "name": "Panadol Extra 500mg",
-            "category": "Analgésicos",
             "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300",
             "prices": [
                 {
                     "pharmacy": "Fischel",
-                    "price": 3250,
-                    "link": "https://fischelenlinea.com/search?q=panadol"
+                    "price": 3250
                 },
                 {
                     "pharmacy": "FarmaValue",
-                    "price": 2850,
-                    "link": "https://farmavalue.com/cr/"
+                    "price": 2850
                 },
                 {
                     "pharmacy": "La Bomba",
-                    "price": 2900,
-                    "link": "https://farmacialabomba.com/"
+                    "price": 2900
                 },
                 {
                     "pharmacy": "Sucre",
-                    "price": 3100,
-                    "link": "https://sucreenlinea.com/"
+                    "price": 3150
                 }
             ]
         },
         {
             "id": 2,
-            "name": "Advil Liquid Gels 200mg",
-            "category": "Analgésicos",
-            "image": "https://images.unsplash.com/photo-1587854692152-cbe660dbbb88?w=300",
+            "name": "Ozempic 1mg",
+            "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300",
             "prices": [
                 {
-                    "pharmacy": "Fischel",
-                    "price": 5100,
-                    "link": "https://fischelenlinea.com"
-                },
-                {
                     "pharmacy": "FarmaValue",
-                    "price": 4600,
-                    "link": "https://farmavalue.com/cr/"
+                    "price": 62450
                 },
                 {
                     "pharmacy": "La Bomba",
-                    "price": 4750,
-                    "link": "https://farmacialabomba.com/"
-                },
-                {
-                    "pharmacy": "Sucre",
-                    "price": 4900,
-                    "link": "https://sucreenlinea.com/"
+                    "price": 63000
                 }
             ]
         },
         {
             "id": 3,
-            "name": "Ozempic 1mg Pluma",
-            "category": "Diabetes",
-            "image": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=300",
-            "prices": [
-                {
-                    "pharmacy": "Fischel",
-                    "price": 72500,
-                    "link": "https://fischelenlinea.com"
-                },
-                {
-                    "pharmacy": "FarmaValue",
-                    "price": 62450,
-                    "link": "https://farmavalue.com/cr/"
-                },
-                {
-                    "pharmacy": "La Bomba",
-                    "price": 63000,
-                    "link": "https://farmacialabomba.com/"
-                },
-                {
-                    "pharmacy": "Sucre",
-                    "price": 70000,
-                    "link": "https://sucreenlinea.com/"
-                }
-            ]
-        },
-        {
-            "id": 4,
-            "name": "Algodón Hidrófilo 100g",
-            "category": "Botiquín",
+            "name": "Algodon Hidrofilo",
             "image": "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=300",
             "prices": [
                 {
                     "pharmacy": "Fischel",
-                    "price": 1350,
-                    "link": "https://fischelenlinea.com"
-                },
-                {
-                    "pharmacy": "FarmaValue",
-                    "price": 950,
-                    "link": "https://farmavalue.com/cr/"
+                    "price": 1100
                 },
                 {
                     "pharmacy": "La Bomba",
-                    "price": 900,
-                    "link": "https://farmacialabomba.com/"
-                },
-                {
-                    "pharmacy": "Sucre",
-                    "price": 1100,
-                    "link": "https://sucreenlinea.com/"
-                }
-            ]
-        },
-        {
-            "id": 5,
-            "name": "Alcohol Antiséptico 70% 350ml",
-            "category": "Botiquín",
-            "image": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=300",
-            "prices": [
-                {
-                    "pharmacy": "Fischel",
-                    "price": 2100,
-                    "link": "https://fischelenlinea.com"
-                },
-                {
-                    "pharmacy": "FarmaValue",
-                    "price": 1800,
-                    "link": "https://farmavalue.com/cr/"
-                },
-                {
-                    "pharmacy": "La Bomba",
-                    "price": 1750,
-                    "link": "https://farmacialabomba.com/"
-                },
-                {
-                    "pharmacy": "Sucre",
-                    "price": 1950,
-                    "link": "https://sucreenlinea.com/"
-                }
-            ]
-        },
-        {
-            "id": 6,
-            "name": "Ensure Advance Vainilla 400g",
-            "category": "Nutrición",
-            "image": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=300",
-            "prices": [
-                {
-                    "pharmacy": "Fischel",
-                    "price": 14900,
-                    "link": "https://fischelenlinea.com"
-                },
-                {
-                    "pharmacy": "FarmaValue",
-                    "price": 13950,
-                    "link": "https://farmavalue.com/cr/"
-                },
-                {
-                    "pharmacy": "La Bomba",
-                    "price": 13800,
-                    "link": "https://farmacialabomba.com/"
-                },
-                {
-                    "pharmacy": "Sucre",
-                    "price": 14500,
-                    "link": "https://sucreenlinea.com/"
-                }
-            ]
-        },
-        {
-            "id": 7,
-            "name": "Enterogermina 2 Billones 10 Amp",
-            "category": "Digestivos",
-            "image": "https://images.unsplash.com/photo-1550572017-ed200f545dec?w=300",
-            "prices": [
-                {
-                    "pharmacy": "Fischel",
-                    "price": 8900,
-                    "link": "https://fischelenlinea.com"
-                },
-                {
-                    "pharmacy": "FarmaValue",
-                    "price": 7950,
-                    "link": "https://farmavalue.com/cr/"
-                },
-                {
-                    "pharmacy": "La Bomba",
-                    "price": 8100,
-                    "link": "https://farmacialabomba.com/"
-                },
-                {
-                    "pharmacy": "Sucre",
-                    "price": 8750,
-                    "link": "https://sucreenlinea.com/"
-                }
-            ]
-        },
-        {
-            "id": 20,
-            "name": "Gasa Calidad Médica",
-            "category": "Botiquín",
-            "image": "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=300",
-            "prices": [
-                {
-                    "pharmacy": "Fischel",
-                    "price": 1800,
-                    "link": "https://fischelenlinea.com"
-                },
-                {
-                    "pharmacy": "FarmaValue",
-                    "price": 1500,
-                    "link": "https://farmavalue.com/cr/"
-                },
-                {
-                    "pharmacy": "La Bomba",
-                    "price": 1450,
-                    "link": "https://farmacialabomba.com/"
-                },
-                {
-                    "pharmacy": "Sucre",
-                    "price": 1650,
-                    "link": "https://sucreenlinea.com/"
-                }
-            ]
-        },
-        {
-            "id": 21,
-            "name": "Curitas Calidad Médica",
-            "category": "Botiquín",
-            "image": "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=300",
-            "prices": [
-                {
-                    "pharmacy": "Fischel",
-                    "price": 2000,
-                    "link": "https://fischelenlinea.com"
-                },
-                {
-                    "pharmacy": "FarmaValue",
-                    "price": 1700,
-                    "link": "https://farmavalue.com/cr/"
-                },
-                {
-                    "pharmacy": "La Bomba",
-                    "price": 1650,
-                    "link": "https://farmacialabomba.com/"
-                },
-                {
-                    "pharmacy": "Sucre",
-                    "price": 1850,
-                    "link": "https://sucreenlinea.com/"
-                }
-            ]
-        },
-        {
-            "id": 22,
-            "name": "Mascarilla Calidad Médica",
-            "category": "Botiquín",
-            "image": "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=300",
-            "prices": [
-                {
-                    "pharmacy": "Fischel",
-                    "price": 2200,
-                    "link": "https://fischelenlinea.com"
-                },
-                {
-                    "pharmacy": "FarmaValue",
-                    "price": 1900,
-                    "link": "https://farmavalue.com/cr/"
-                },
-                {
-                    "pharmacy": "La Bomba",
-                    "price": 1850,
-                    "link": "https://farmacialabomba.com/"
-                },
-                {
-                    "pharmacy": "Sucre",
-                    "price": 2050,
-                    "link": "https://sucreenlinea.com/"
-                }
-            ]
-        },
-        {
-            "id": 23,
-            "name": "Vitaminas Calidad Médica",
-            "category": "Botiquín",
-            "image": "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=300",
-            "prices": [
-                {
-                    "pharmacy": "Fischel",
-                    "price": 2400,
-                    "link": "https://fischelenlinea.com"
-                },
-                {
-                    "pharmacy": "FarmaValue",
-                    "price": 2100,
-                    "link": "https://farmavalue.com/cr/"
-                },
-                {
-                    "pharmacy": "La Bomba",
-                    "price": 2050,
-                    "link": "https://farmacialabomba.com/"
-                },
-                {
-                    "pharmacy": "Sucre",
-                    "price": 2250,
-                    "link": "https://sucreenlinea.com/"
-                }
-            ]
-        },
-        {
-            "id": 24,
-            "name": "Jabon Antiseptico Calidad Médica",
-            "category": "Botiquín",
-            "image": "https://images.unsplash.com/photo-1583947215259-38e31be8751f?w=300",
-            "prices": [
-                {
-                    "pharmacy": "Fischel",
-                    "price": 2600,
-                    "link": "https://fischelenlinea.com"
-                },
-                {
-                    "pharmacy": "FarmaValue",
-                    "price": 2300,
-                    "link": "https://farmavalue.com/cr/"
-                },
-                {
-                    "pharmacy": "La Bomba",
-                    "price": 2250,
-                    "link": "https://farmacialabomba.com/"
-                },
-                {
-                    "pharmacy": "Sucre",
-                    "price": 2450,
-                    "link": "https://sucreenlinea.com/"
+                    "price": 950
                 }
             ]
         }
